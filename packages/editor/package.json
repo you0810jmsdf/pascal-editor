@@ -7,6 +7,7 @@
   "exports": {
     ".": "./src/index.tsx",
     "./i18n": "./src/lib/i18n.ts",
+    "./dom-translate": "./src/lib/dom-translate.ts",
     "./catalog": "./src/components/ui/item-catalog/catalog-items.tsx",
     "./procedural-items": "./src/components/procedural-items/inspector.tsx"
   },

@@ -11,6 +11,7 @@
 import '../lib/bootstrap'
 import '../lib/iconify-offline'
 import '../lib/static-decoders'
+import { startStaticDomI18n } from '../lib/static-dom-i18n'
 import { type ReactNode, useEffect } from 'react'
 
 export function ClientBootstrap({
@@ -20,6 +21,9 @@ export function ClientBootstrap({
   children: ReactNode
   enableDevDiagnostics: boolean
 }) {
+  useEffect(() => {
+    startStaticDomI18n()
+  }, [])
   useEffect(() => {
     if (!enableDevDiagnostics) return
     import('react-scan').then(({ scan }) => scan({ enabled: true }))

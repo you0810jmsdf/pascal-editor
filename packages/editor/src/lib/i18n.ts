@@ -4,13 +4,14 @@
  * 保存データのID・内部名は翻訳しない。表示ラベルだけを t() に通す。
  */
 import { ja } from './i18n-ja'
+import { jaUi } from './i18n-ja-ui'
 
 // 上流のテストは英語の文言で照合するため、テスト実行中は翻訳しない
 const IS_TEST = typeof process !== 'undefined' && process.env?.NODE_ENV === 'test'
 
 export function t(text: string): string {
   if (IS_TEST) return text
-  const direct = ja[text]
+  const direct = ja[text] ?? jaUi[text]
   if (direct !== undefined) return direct
   // 「Snapping: Grid」のような「見出し: 値」形式は両側を個別に訳す
   const sep = text.indexOf(': ')
