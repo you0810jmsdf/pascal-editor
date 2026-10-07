@@ -214,6 +214,7 @@ export function adaptJpBuilding(
           area: area([{ outer: zone.polygon, holes: zone.holes }]),
           kind,
           ceilingHeight: zone.ceilingHeight,
+          daylightNeighborDistance: zone.jp?.daylightNeighborDistance,
           windows: roomWalls.flatMap((w) =>
             descendantsOf(nodes, w.id)
               .filter((n): n is WindowNode => n.type === 'window' && n.openingKind === 'window')

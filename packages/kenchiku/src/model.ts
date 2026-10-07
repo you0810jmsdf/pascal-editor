@@ -106,6 +106,7 @@ export interface JpRoom {
   ceilingHeight: number
   windows: JpOpening[]
   openableArea?: number
+  daylightNeighborDistance?: number // 採光補正係数の d（隣地境界線までの水平距離 m）。未入力は input-needed
 }
 
 export interface JpStorey {
@@ -144,5 +145,6 @@ export interface JpBuildingInput {
   minBearingLength: number // 耐力壁とみなす最小長さ m（既定 0.9）
   quasiWalls: boolean // 準耐力壁等を算入するか（既定 false）
   facade?: { x: FacadeArea[]; y: FacadeArea[] } // アダプタが計算した見付面積（階ごと）。無ければエンジンが bbox と roof から近似
+  firstFloorHeight?: number // 1階の床高（地盤面から m）。令22条の判定に使う。未入力は input-needed
   site?: JpSiteInput // §7 用
 }

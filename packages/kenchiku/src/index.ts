@@ -1,5 +1,13 @@
+export {
+  type CheckStatus,
+  type CodeCheck,
+  type CodeCheckReport,
+  checkBuildingCode,
+  daylightFactor,
+} from './code-check'
 export type { Explain, Explained, Reference } from './explain'
 export { BEARING_RATIOS, BEARING_RULES, type BearingKind } from './knowledge/bearing-ratios'
+export { CODE_REFERENCES } from './knowledge/code-references'
 export { LOADS, WIND } from './knowledge/loads'
 export { N_VALUE_COEFFICIENTS, N_VALUE_REFERENCES, N_VALUE_TABLES } from './knowledge/n-value'
 export { EFFECTIVE_DATE, REFERENCES } from './knowledge/references'
