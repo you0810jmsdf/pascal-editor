@@ -24,7 +24,16 @@ export type {
   Pt,
   RoomKind,
 } from './model'
+export {
+  type BearingSegment,
+  bearingRatio,
+  bearingWalls,
+  wallSegments,
+} from './structural/bearing-wall'
 export { columnMinSize, columnSizes } from './structural/column-size'
+export { existingWall, wallSufficiency } from './structural/existing-wall'
+export { nValue, nValues } from './structural/n-value'
+export { quarterBalance, quarterMethod, quarterStorey } from './structural/quarter-method'
 export { requiredWall } from './structural/required-wall'
 export { KenchikuScopeError } from './structural/validation'
 export { requiredWind, windWall } from './structural/wind'

@@ -17,7 +17,23 @@
 
 `facade`が無い場合、壁は床外周bbox、屋根は切妻三角形（rise=0なら0.15mの帯）で近似し、その旨を`explain`に残します。X方向の見付幅はY方向の広がりを使います。屋根`silhouette`は各方向の立面多角形で、縦座標の原点を軒高とします。寄棟等の正確な面積は`facade`または`silhouette`で指定してください。
 
-知識データの数値は同梱のまま保持しています。N値筋かい補正の原典照合、金物「ぬ」の仕様書とJSONの差異、極端な階高の閾値はソース内TODOを参照してください。N値計算、存在壁量、四分割、Pascalアダプタ、UIは後続STEPの対象です。
+知識データの数値は同梱のまま保持しています。N値筋かい補正の原典照合、金物「ぬ」の仕様書とJSONの差異、極端な階高の閾値はソース内TODOを参照してください。Pascalアダプタ、UIは後続STEPの対象です。
+
+## 公開API（STEP 2）
+
+- `bearingRatio(spec, length, ho)`：区間長さ・横架材上端間距離（m）から、各仕様のαhと併用上限適用後の倍率。
+- `wallSegments(wall, minLength, ho, quasiWalls?)` / `bearingWalls(building)`：開口控除後の区間、壁別内訳、曲面・斜め壁の集計外件数。
+- `wallSufficiency(bearingCm, quasiCm, quakeCm, windCm)` / `existingWall(building)`：準耐力壁等の1/2制限、階別・方向別充足率、壁量の総合判定。
+- `quarterBalance(area1, area2, wall1, wall2, lw)` / `quarterStorey(storey, direction, lw, segments)` / `quarterMethod(building)`：側端帯のポリゴン・穴・実面積と耐力壁量、壁率比、四分割の判定。
+- `nValue(a1, a2, corner, firstOfTwo, upperCorner?)` / `nValues(building)`：方向別の倍率差・筋かい補正、上下階の出隅判定、柱別N値と金物区分。
+
+併用は `bearing: { kind: 'combined', components: [{ kind: 'brace-45x90' }, { kind: 'panel-plywood' }] }` で指定します。`components`の各仕様で任意倍率・筋かい幅・向きを指定できます。`braceTop: 'start' | 'end'` が無い片筋かいは、提供JSONの規則に従い両端へ正の補正を加えて注記します。`curveOffset`が0以外なら曲面壁として除外します。
+
+`horizontalMemberDistance`は階ごとのHo（m）。省略時は§6.8と同じ梁せい（2階建て1階120mm、最上階105mm）を階高から引いた近似値を使い、explainに記録します。
+
+準耐力壁は壁仕様の`quasi: { kind: 'panel' | 'lath', panelHeightRatio, position?, clearHeight? }`で明示します。通常耐力壁とは別集計です。`faces`で片面・両面を指定します。垂れ壁・腰壁はそれぞれ`position: 'hanging' | 'spandrel'`として別の壁区間を入力し、`clearHeight`（内法m）と高さ比で高さ36cm以上を確認します。幅90cm〜2m・同方向の耐力壁が両端にある区間だけ算入します。開口から準耐力壁を自動生成しません。
+
+必要壁量が0の充足率、両側0などで定義できない壁率比はJSONで保持できる`null`です。判定は壁量を直接比較します。10m×8m矩形の四分割帯は20㎡であり、§11記載の16㎡とは異なるため、形状と指定手計算値は分けてテストしています。「ぬ」は仕様書の25kN×2を表示し、JSONの30kNとの相違が未解決のため計算結果の`requiredKn`を`null`として注記します。
 
 ## 検証
 
