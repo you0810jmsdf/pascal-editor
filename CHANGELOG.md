@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Features (N's factory fork)
+
+- **Japanese building code (建築法規)** — a Pascal-free engine `@nsfactory/kenchiku` (`packages/kenchiku`) computes the 2025-04 wood-frame prescriptive checks (必要壁量 from loads, 風圧, 存在壁量, 四分割法, N値, 柱の小径), the non-structural site and room checks, and nine printable documents; `core` adds optional `jp` fields on site/building/wall/zone and a scene adapter; the editor gets a 建築法規 panel and a floor-plan overlay of bearing walls; agents get `jp_structural_check`, `jp_building_code_check`, `jp_set_wall_bearing`, `jp_get_document`. Results are design references that state their formula and legal source. See `wiki/architecture/kenchiku.md` and `docs/nsfactory/kenchiku-spec.md`.
+
+
 ### Breaking
 
 - **`wall.assembly` is now F2 assembly layers** (breaking change to the additive plugin v1 contract; the WS5 shape shipped days earlier in #937). Walls store `{ layers: [{ id, role, thickness, core?, material?, … }], face?, presetId?, cavityInsulation? }` instead of `{ exterior, sheathing, framing, interior, preset }`. Scenes saved with the old shape are converted on load and at the scene API boundary, so `thickness` and every drawing stay the same. Plugins that read `wall.assembly.exterior` / `.framing` / `.preset` directly should read `wallAssemblyToLegacy(wall.assembly)` (the old shape, or `null` for a stack it cannot express), `wallAssemblyFraming(wall)` or `wallAssemblyExteriorFinish(wall)`; `WALL_ASSEMBLY_PRESETS[i].assembly` is F2 too.

@@ -29,6 +29,7 @@ Canonical rules for code that touches `packages/core`, `packages/viewer`, `packa
 | [vertical-model](vertical-model.md) | Stored level heights, plane-bound wall/ceiling tops, slab placement + thickness, support hosts, clamp rules, and the load migration |
 | [wall-frame](wall-frame.md) | Wall reference line and justification (`a` / `b` / Center), lateral offsets owned by `wall-frame.ts` |
 | [space-detection](space-detection.md) | Commit and replication contract for wall-driven room reconciliation |
+| [kenchiku](kenchiku.md) | Japanese building-code engine (`@nsfactory/kenchiku`), the scene adapter, persisted `jp` fields, the 建築法規 panel and the `jp_*` agent tools (N's factory fork) |
 | [events](events.md) | Typed event bus — emitting and listening to node and grid events |
 
 ## Reading order for an architecture review
