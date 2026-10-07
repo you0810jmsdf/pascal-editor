@@ -1,5 +1,6 @@
 'use client'
 
+import { tn } from '../../../lib/i18n'
 import { Check } from 'lucide-react'
 import { cn } from '../../../lib/utils'
 
@@ -27,7 +28,7 @@ export function ToggleControl({
       onClick={() => onChange(!checked)}
     >
       <div className="select-none text-muted-foreground transition-colors group-hover:text-foreground">
-        {label}
+        {tn(label)}
       </div>
 
       <div

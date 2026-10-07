@@ -1,5 +1,6 @@
 'use client'
 
+import { t } from '../../lib/i18n'
 import { Icon } from '@iconify/react'
 import {
   acquireSceneReadOnlyLease,
@@ -548,7 +549,7 @@ function CameraControlHintItem({ hint }: { hint: CameraControlHint }) {
   return (
     <div className="flex min-w-0 flex-col items-center gap-1.5 px-4 text-center first:pl-0 last:pr-0">
       <span className="font-medium text-[10px] text-muted-foreground/60 tracking-[0.03em]">
-        {hint.action}
+        {t(hint.action)}
       </span>
       <div className="flex flex-wrap items-center justify-center gap-1.5">
         <ShortcutSequence keys={hint.keys} />

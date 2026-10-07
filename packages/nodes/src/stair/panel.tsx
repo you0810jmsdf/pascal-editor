@@ -1,5 +1,6 @@
 'use client'
 
+import { t } from '@pascal-app/editor/i18n'
 import {
   type AnyNode,
   type AnyNodeId,
@@ -644,7 +645,7 @@ export default function StairPanel() {
             />
             {node.totalRise == null ? (
               <div className="px-1 text-[11px] text-muted-foreground">
-                Currently {formatLinearMeasurement(resolvedRise, unit, metricNotation)}
+                {t('Currently')} {formatLinearMeasurement(resolvedRise, unit, metricNotation)}
               </div>
             ) : (
               <MetricControl

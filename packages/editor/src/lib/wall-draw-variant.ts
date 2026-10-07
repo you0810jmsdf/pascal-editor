@@ -1,3 +1,4 @@
+import { t } from './i18n'
 import { emitter } from '@pascal-app/core'
 import useEditor from '../store/use-editor'
 import type { ContinuationMode } from './continuation'
@@ -26,40 +27,41 @@ export const WALL_DRAW_VARIANTS: readonly WallDrawVariantInfo[] = [
   {
     id: 'rectangle',
     mode: 'rectangle',
-    label: 'Rectangle',
-    title: 'Rectangle room',
+    label: t('Rectangle'),
+    title: t('Rectangle room'),
     iconSrc: '/icons/room.webp',
     caption: {
-      lead: 'Click two corners',
-      rest: 'on the grid. Walls, floor and ceiling are created together.',
+      lead: t('Click two corners'),
+      rest: t('on the grid. Walls, floor and ceiling are created together.'),
     },
   },
   {
     id: 'polygon',
     mode: 'room',
-    label: 'Polygon',
-    title: 'Polygon room',
+    label: t('Polygon'),
+    title: t('Polygon room'),
     iconSrc: '/icons/polygon-room.webp',
     caption: {
-      lead: 'Click each corner,',
-      rest: 'then the first one again to close. For L-shapes and angled rooms.',
+      lead: t('Click each corner,'),
+      rest: t('then the first one again to close. For L-shapes and angled rooms.'),
     },
   },
   {
     id: 'walls',
     mode: 'single',
-    label: 'Walls',
-    title: 'Walls',
+    label: t('Walls'),
+    title: t('Walls'),
     iconSrc: '/icons/wall.webp',
     caption: {
-      lead: 'Draw one wall at a time.',
-      rest: 'Close a loop and it becomes a room; leave it open for partitions.',
+      lead: t('Draw one wall at a time.'),
+      rest: t('Close a loop and it becomes a room; leave it open for partitions.'),
     },
   },
 ]
 
-export const WALL_DRAW_IDLE_CAPTION =
-  'Pick a shape to start. Every room brings its own walls, floor and ceiling.'
+export const WALL_DRAW_IDLE_CAPTION = t(
+  'Pick a shape to start. Every room brings its own walls, floor and ceiling.',
+)
 
 export function getWallDrawVariantInfo(variant: WallDrawVariant): WallDrawVariantInfo {
   return WALL_DRAW_VARIANTS.find((info) => info.id === variant) ?? WALL_DRAW_VARIANTS[1]!

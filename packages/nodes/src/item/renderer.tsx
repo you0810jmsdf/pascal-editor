@@ -1,5 +1,6 @@
 'use client'
 
+import { staticDecoderPath } from '@pascal-app/viewer'
 import {
   type AnimationEffect,
   type AnyNodeId,
@@ -231,7 +232,9 @@ const configureItemModelLoader = (loader: ItemGLTFLoader, renderer: unknown) => 
   configureKtx2Support(loader, renderer)
   if (!itemDracoLoader) {
     itemDracoLoader = new DRACOLoader(loader.manager)
-    itemDracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.5/')
+    itemDracoLoader.setDecoderPath(
+      staticDecoderPath('draco') ?? 'https://www.gstatic.com/draco/versioned/decoders/1.5.5/',
+    )
   }
   loader.setDRACOLoader(itemDracoLoader)
   loader.setMeshoptDecoder(MeshoptDecoder)

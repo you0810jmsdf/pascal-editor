@@ -1,5 +1,6 @@
 'use client'
 
+import { t } from '../../../lib/i18n'
 import { ChevronRight } from 'lucide-react'
 import { type ComponentPropsWithoutRef, type ReactNode, useEffect, useState } from 'react'
 import { cn } from '../../../lib/utils'
@@ -28,8 +29,8 @@ export function BuildPanelSection({
   return (
     <section className="flex flex-col" data-build-group={id}>
       <div className="mb-2 flex items-baseline justify-between gap-2 px-0.5">
-        <h3 className="font-medium text-foreground text-xs">{title}</h3>
-        {hint ? <span className="truncate text-[11px] text-muted-foreground">{hint}</span> : null}
+        <h3 className="font-medium text-foreground text-xs">{t(title)}</h3>
+        {hint ? <span className="truncate text-[11px] text-muted-foreground">{t(hint)}</span> : null}
       </div>
       {children}
     </section>
@@ -94,16 +95,16 @@ export function BuildPanelAdvancedSection({
             open && 'rotate-90',
           )}
         />
-        <h3 className="font-medium text-foreground text-xs">Advanced</h3>
+        <h3 className="font-medium text-foreground text-xs">{t('Advanced')}</h3>
         {hint ? (
-          <span className="ml-auto truncate text-[11px] text-muted-foreground">{hint}</span>
+          <span className="ml-auto truncate text-[11px] text-muted-foreground">{t(hint)}</span>
         ) : null}
       </button>
       {open ? (
         <div className="flex flex-col gap-2.5 pt-1.5">
           {description ? (
             <p className="px-0.5 text-[11px] text-muted-foreground leading-relaxed">
-              {description}
+              {t(description)}
             </p>
           ) : null}
           {children}
@@ -174,7 +175,7 @@ export function BuildToolTile({
           active ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground',
         )}
       >
-        {label}
+        {t(label)}
       </span>
       {badge ? <span className="absolute top-1 right-1">{badge}</span> : null}
     </button>
@@ -185,8 +186,8 @@ export function BuildToolTile({
 export function BuildPanelCaption({ lead, rest }: { lead?: string; rest: string }) {
   return (
     <p className="mt-2 min-h-[2lh] px-0.5 text-[11px] text-muted-foreground leading-relaxed">
-      {lead ? <span className="font-medium text-foreground">{lead} </span> : null}
-      {rest}
+      {lead ? <span className="font-medium text-foreground">{t(lead)} </span> : null}
+      {t(rest)}
     </p>
   )
 }

@@ -1,5 +1,6 @@
 'use client'
 
+import { t } from '@pascal-app/editor/i18n'
 import {
   type AnyNode,
   isDerivedNode,
@@ -383,7 +384,7 @@ export function SlabPanel() {
 
       <PanelSection title="Info">
         <div className="flex items-center justify-between px-2 py-1 text-muted-foreground text-sm">
-          <span>Area</span>
+          <span>{t('Area')}</span>
           <span className="font-mono text-white">{area.toFixed(2)} m²</span>
         </div>
       </PanelSection>
@@ -478,7 +479,7 @@ export function SlabPanel() {
             })}
           </div>
         ) : (
-          <div className="px-2 py-3 text-center text-muted-foreground text-xs">No holes</div>
+          <div className="px-2 py-3 text-center text-muted-foreground text-xs">{t('No holes')}</div>
         )}
 
         <div className="px-1 pt-1 pb-1">

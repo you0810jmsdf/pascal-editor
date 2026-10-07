@@ -1,5 +1,6 @@
 'use client'
 
+import { t } from '@pascal-app/editor/i18n'
 import {
   type AnyNode,
   type AnyNodeId,
@@ -293,7 +294,7 @@ export default function RoofPanel() {
         )}
         {node.support?.kind === 'walls' ? (
           <div className="px-1 text-[11px] text-muted-foreground">
-            Currently {formatLinearMeasurement(node.position[1], unit, metricNotation)}
+            {t('Currently')} {formatLinearMeasurement(node.position[1], unit, metricNotation)}
           </div>
         ) : (
           <SliderControl

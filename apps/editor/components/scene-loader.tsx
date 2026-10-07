@@ -3,6 +3,7 @@
 // Node registry bootstrap is loaded once at the root via
 // `<ClientBootstrap>` in `app/layout.tsx` — no per-page side-effect
 // import here.
+import { t } from '@pascal-app/editor/i18n'
 import {
   applySceneGraphToEditor,
   Editor,
@@ -300,16 +301,16 @@ export function SceneLoader({ initialScene, meta }: SceneLoaderProps) {
           onClick={() =>
             router.push(lightPreview ? `/scene/${meta.id}` : `/scene/${meta.id}?disable=postFx`)
           }
-          title="Skip the post-processing pipeline — lighter on the GPU, no ambient occlusion or selection outlines"
+          title={t('Skip the post-processing pipeline — lighter on the GPU, no ambient occlusion or selection outlines')}
           type="button"
         >
-          Light preview
+          {t('Light preview')}
         </button>
         <Link
           className="pointer-events-auto rounded-md border border-border bg-background/90 px-3 py-1.5 font-medium text-xs shadow-sm backdrop-blur hover:bg-accent/40"
           href="/scenes"
         >
-          All scenes
+          {t('All scenes')}
         </Link>
       </div>
       <Editor

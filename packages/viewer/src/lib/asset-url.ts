@@ -1,6 +1,12 @@
 import { loadAssetUrl, resolveArtifactUrl } from '@pascal-app/core'
 
-export const ASSETS_CDN_URL = process.env.NEXT_PUBLIC_ASSETS_CDN_URL || 'https://editor.pascal.app'
+// N's factory 静的版: 素材は自サイトから配信する。パスには書き出し時にサブパスが付いているため、
+// 取得元はサイトの origin だけにする（それ以外のビルドは従来どおり）。
+const STATIC_EXPORT = process.env.NEXT_PUBLIC_PASCAL_STATIC === '1'
+
+export const ASSETS_CDN_URL =
+  process.env.NEXT_PUBLIC_ASSETS_CDN_URL ||
+  (STATIC_EXPORT && typeof window !== 'undefined' ? window.location.origin : 'https://editor.pascal.app')
 
 /**
  * Resolves an asset URL to the appropriate format:
@@ -53,4 +59,13 @@ export function resolveCdnUrl(url: string | undefined | null): string | null {
   // Absolute or relative path - prepend CDN URL
   const normalizedPath = url.startsWith('/') ? url : `/${url}`
   return `${ASSETS_CDN_URL}${normalizedPath}`
+}
+
+/**
+ * 静的版で 3D のデコーダー(Draco / Basis)を自サイトから読むための配信先。
+ * 静的版以外・サーバー側の描画時は null（従来どおり外部CDNを使う）。
+ */
+export function staticDecoderPath(kind: 'draco' | 'basis'): string | null {
+  if (!STATIC_EXPORT || typeof window === 'undefined') return null
+  return `${window.location.origin}${process.env.NEXT_PUBLIC_PASCAL_STATIC_BASE_PATH ?? ''}/decoders/${kind}/`
 }

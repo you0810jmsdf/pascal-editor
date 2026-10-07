@@ -1,0 +1,1327 @@
+{
+ "source": "https://byrpxoiotywskoojsrzd.supabase.co/storage/v1/object/public/",
+ "project": "https://github.com/pascalorg/editor",
+ "fetchedAt": "2026-10-07T02:00:14.369Z",
+ "files": [
+  {
+   "path": "items/system/1967-chevrolet-camaro-moa24wsf/floor-plan.png",
+   "bytes": 60034
+  },
+  {
+   "path": "items/system/1967-chevrolet-camaro-moa24wsf/models/item_model_vUIp1N69V9RXLqoJ.glb",
+   "bytes": 256524
+  },
+  {
+   "path": "items/system/1967-chevrolet-camaro-moa24wsf/thumbnail.png",
+   "bytes": 298612
+  },
+  {
+   "path": "items/system/ac-block/floor-plan.png",
+   "bytes": 141217
+  },
+  {
+   "path": "items/system/ac-block/model.glb",
+   "bytes": 31960
+  },
+  {
+   "path": "items/system/ac-block/thumbnail.png",
+   "bytes": 122413
+  },
+  {
+   "path": "items/system/air-conditioning/floor-plan.png",
+   "bytes": 2849
+  },
+  {
+   "path": "items/system/air-conditioning/model.glb",
+   "bytes": 4956
+  },
+  {
+   "path": "items/system/air-conditioning/thumbnail.png",
+   "bytes": 72265
+  },
+  {
+   "path": "items/system/alarm-keypad/floor-plan.png",
+   "bytes": 2904
+  },
+  {
+   "path": "items/system/alarm-keypad/model.glb",
+   "bytes": 10284
+  },
+  {
+   "path": "items/system/alarm-keypad/thumbnail.png",
+   "bytes": 91657
+  },
+  {
+   "path": "items/system/ball/floor-plan.png",
+   "bytes": 37326
+  },
+  {
+   "path": "items/system/ball/model.glb",
+   "bytes": 17408
+  },
+  {
+   "path": "items/system/ball/thumbnail.png",
+   "bytes": 103445
+  },
+  {
+   "path": "items/system/barbell-stand/floor-plan.png",
+   "bytes": 39428
+  },
+  {
+   "path": "items/system/barbell-stand/model.glb",
+   "bytes": 22740
+  },
+  {
+   "path": "items/system/barbell-stand/thumbnail.png",
+   "bytes": 81545
+  },
+  {
+   "path": "items/system/barbell/floor-plan.png",
+   "bytes": 113864
+  },
+  {
+   "path": "items/system/barbell/model.glb",
+   "bytes": 12780
+  },
+  {
+   "path": "items/system/barbell/thumbnail.png",
+   "bytes": 69937
+  },
+  {
+   "path": "items/system/basket-hoop/floor-plan.png",
+   "bytes": 21386
+  },
+  {
+   "path": "items/system/basket-hoop/model.glb",
+   "bytes": 5452
+  },
+  {
+   "path": "items/system/basket-hoop/thumbnail.png",
+   "bytes": 52730
+  },
+  {
+   "path": "items/system/bathroom-sink/floor-plan.png",
+   "bytes": 20516
+  },
+  {
+   "path": "items/system/bathroom-sink/model.glb",
+   "bytes": 9824
+  },
+  {
+   "path": "items/system/bathroom-sink/thumbnail.png",
+   "bytes": 108672
+  },
+  {
+   "path": "items/system/bathtub/floor-plan.png",
+   "bytes": 57340
+  },
+  {
+   "path": "items/system/bathtub/model.glb",
+   "bytes": 6008
+  },
+  {
+   "path": "items/system/bathtub/thumbnail.png",
+   "bytes": 84525
+  },
+  {
+   "path": "items/system/bedside-table/floor-plan.png",
+   "bytes": 21247
+  },
+  {
+   "path": "items/system/bedside-table/model.glb",
+   "bytes": 4524
+  },
+  {
+   "path": "items/system/bedside-table/thumbnail.png",
+   "bytes": 164578
+  },
+  {
+   "path": "items/system/books/floor-plan.png",
+   "bytes": 24740
+  },
+  {
+   "path": "items/system/books/model.glb",
+   "bytes": 18212
+  },
+  {
+   "path": "items/system/books/thumbnail.png",
+   "bytes": 150918
+  },
+  {
+   "path": "items/system/bookshelf/floor-plan.png",
+   "bytes": 81677
+  },
+  {
+   "path": "items/system/bookshelf/model.glb",
+   "bytes": 3524
+  },
+  {
+   "path": "items/system/bookshelf/thumbnail.png",
+   "bytes": 163685
+  },
+  {
+   "path": "items/system/bunkbed/floor-plan.png",
+   "bytes": 94935
+  },
+  {
+   "path": "items/system/bunkbed/model.glb",
+   "bytes": 37528
+  },
+  {
+   "path": "items/system/bunkbed/thumbnail.png",
+   "bytes": 371397
+  },
+  {
+   "path": "items/system/bush/floor-plan.png",
+   "bytes": 37058
+  },
+  {
+   "path": "items/system/bush/model.glb",
+   "bytes": 2968
+  },
+  {
+   "path": "items/system/bush/thumbnail.png",
+   "bytes": 95302
+  },
+  {
+   "path": "items/system/cactus/floor-plan.png",
+   "bytes": 97148
+  },
+  {
+   "path": "items/system/cactus/model.glb",
+   "bytes": 7464
+  },
+  {
+   "path": "items/system/cactus/thumbnail.png",
+   "bytes": 95978
+  },
+  {
+   "path": "items/system/car-toy/floor-plan.png",
+   "bytes": 79028
+  },
+  {
+   "path": "items/system/car-toy/model.glb",
+   "bytes": 20108
+  },
+  {
+   "path": "items/system/car-toy/thumbnail.png",
+   "bytes": 108877
+  },
+  {
+   "path": "items/system/ceiling-fan/floor-plan.png",
+   "bytes": 15825
+  },
+  {
+   "path": "items/system/ceiling-fan/model.glb",
+   "bytes": 5692
+  },
+  {
+   "path": "items/system/ceiling-fan/thumbnail.png",
+   "bytes": 48789
+  },
+  {
+   "path": "items/system/ceiling-lamp/floor-plan.png",
+   "bytes": 104271
+  },
+  {
+   "path": "items/system/ceiling-lamp/model.glb",
+   "bytes": 9136
+  },
+  {
+   "path": "items/system/ceiling-lamp/thumbnail.png",
+   "bytes": 157096
+  },
+  {
+   "path": "items/system/closet/floor-plan.png",
+   "bytes": 6891
+  },
+  {
+   "path": "items/system/closet/model.glb",
+   "bytes": 1784
+  },
+  {
+   "path": "items/system/closet/thumbnail.png",
+   "bytes": 126642
+  },
+  {
+   "path": "items/system/coat-rack/floor-plan.png",
+   "bytes": 193593
+  },
+  {
+   "path": "items/system/coat-rack/model.glb",
+   "bytes": 4120
+  },
+  {
+   "path": "items/system/coat-rack/thumbnail.png",
+   "bytes": 35694
+  },
+  {
+   "path": "items/system/coffee-machine/floor-plan.png",
+   "bytes": 12218
+  },
+  {
+   "path": "items/system/coffee-machine/model.glb",
+   "bytes": 6604
+  },
+  {
+   "path": "items/system/coffee-machine/thumbnail.png",
+   "bytes": 140020
+  },
+  {
+   "path": "items/system/coffee-table/floor-plan.png",
+   "bytes": 49448
+  },
+  {
+   "path": "items/system/coffee-table/model.glb",
+   "bytes": 4296
+  },
+  {
+   "path": "items/system/coffee-table/thumbnail.png",
+   "bytes": 124480
+  },
+  {
+   "path": "items/system/column/floor-plan.png",
+   "bytes": 14300
+  },
+  {
+   "path": "items/system/column/model.glb",
+   "bytes": 4548
+  },
+  {
+   "path": "items/system/column/thumbnail.png",
+   "bytes": 107017
+  },
+  {
+   "path": "items/system/computer/floor-plan.png",
+   "bytes": 7200
+  },
+  {
+   "path": "items/system/computer/model.glb",
+   "bytes": 3220
+  },
+  {
+   "path": "items/system/computer/thumbnail.png",
+   "bytes": 79583
+  },
+  {
+   "path": "items/system/cutting-board/floor-plan.png",
+   "bytes": 276393
+  },
+  {
+   "path": "items/system/cutting-board/model.glb",
+   "bytes": 2408
+  },
+  {
+   "path": "items/system/cutting-board/thumbnail.png",
+   "bytes": 134754
+  },
+  {
+   "path": "items/system/dining-chair/floor-plan.png",
+   "bytes": 48170
+  },
+  {
+   "path": "items/system/dining-chair/model.glb",
+   "bytes": 5176
+  },
+  {
+   "path": "items/system/dining-chair/thumbnail.png",
+   "bytes": 63095
+  },
+  {
+   "path": "items/system/dining-table-mo9ms5yh/floor-plan.png",
+   "bytes": 20178
+  },
+  {
+   "path": "items/system/dining-table-mo9ms5yh/models/item_model_Sffq4hIGw8R3keLh.glb",
+   "bytes": 299876
+  },
+  {
+   "path": "items/system/dining-table-mo9ms5yh/thumbnail.png",
+   "bytes": 105148
+  },
+  {
+   "path": "items/system/dining-table/floor-plan.png",
+   "bytes": 103860
+  },
+  {
+   "path": "items/system/dining-table/model.glb",
+   "bytes": 3424
+  },
+  {
+   "path": "items/system/dining-table/thumbnail.png",
+   "bytes": 93251
+  },
+  {
+   "path": "items/system/double-bed/floor-plan.png",
+   "bytes": 82162
+  },
+  {
+   "path": "items/system/double-bed/model.glb",
+   "bytes": 8096
+  },
+  {
+   "path": "items/system/double-bed/thumbnail.png",
+   "bytes": 92317
+  },
+  {
+   "path": "items/system/dresser/floor-plan.png",
+   "bytes": 3457
+  },
+  {
+   "path": "items/system/dresser/model.glb",
+   "bytes": 4348
+  },
+  {
+   "path": "items/system/dresser/thumbnail.png",
+   "bytes": 168743
+  },
+  {
+   "path": "items/system/drying-rack/floor-plan.png",
+   "bytes": 76950
+  },
+  {
+   "path": "items/system/drying-rack/model.glb",
+   "bytes": 10068
+  },
+  {
+   "path": "items/system/drying-rack/thumbnail.png",
+   "bytes": 85829
+  },
+  {
+   "path": "items/system/easel/floor-plan.png",
+   "bytes": 17703
+  },
+  {
+   "path": "items/system/easel/model.glb",
+   "bytes": 5700
+  },
+  {
+   "path": "items/system/easel/thumbnail.png",
+   "bytes": 53816
+  },
+  {
+   "path": "items/system/electric-panel/floor-plan.png",
+   "bytes": 2666
+  },
+  {
+   "path": "items/system/electric-panel/model.glb",
+   "bytes": 2748
+  },
+  {
+   "path": "items/system/electric-panel/thumbnail.png",
+   "bytes": 83914
+  },
+  {
+   "path": "items/system/ev-wall-charger/floor-plan.png",
+   "bytes": 24925
+  },
+  {
+   "path": "items/system/ev-wall-charger/model.glb",
+   "bytes": 68948
+  },
+  {
+   "path": "items/system/ev-wall-charger/thumbnail.png",
+   "bytes": 40175
+  },
+  {
+   "path": "items/system/exit-sign/floor-plan.png",
+   "bytes": 5602
+  },
+  {
+   "path": "items/system/exit-sign/model.glb",
+   "bytes": 6148
+  },
+  {
+   "path": "items/system/exit-sign/thumbnail.png",
+   "bytes": 62300
+  },
+  {
+   "path": "items/system/fir-tree/floor-plan.png",
+   "bytes": 73306
+  },
+  {
+   "path": "items/system/fir-tree/model.glb",
+   "bytes": 3700
+  },
+  {
+   "path": "items/system/fir-tree/thumbnail.png",
+   "bytes": 69421
+  },
+  {
+   "path": "items/system/fire-detector/floor-plan.png",
+   "bytes": 10477
+  },
+  {
+   "path": "items/system/fire-detector/model.glb",
+   "bytes": 20960
+  },
+  {
+   "path": "items/system/fire-detector/thumbnail.png",
+   "bytes": 77068
+  },
+  {
+   "path": "items/system/floor-lamp/floor-plan.png",
+   "bytes": 46832
+  },
+  {
+   "path": "items/system/floor-lamp/model.glb",
+   "bytes": 3836
+  },
+  {
+   "path": "items/system/floor-lamp/thumbnail.png",
+   "bytes": 43324
+  },
+  {
+   "path": "items/system/fridge/floor-plan.png",
+   "bytes": 7527
+  },
+  {
+   "path": "items/system/fridge/model.glb",
+   "bytes": 2028
+  },
+  {
+   "path": "items/system/fridge/thumbnail.png",
+   "bytes": 96188
+  },
+  {
+   "path": "items/system/fruits/floor-plan.png",
+   "bytes": 127894
+  },
+  {
+   "path": "items/system/fruits/model.glb",
+   "bytes": 16008
+  },
+  {
+   "path": "items/system/fruits/thumbnail.png",
+   "bytes": 69087
+  },
+  {
+   "path": "items/system/frying-pan/floor-plan.png",
+   "bytes": 51309
+  },
+  {
+   "path": "items/system/frying-pan/model.glb",
+   "bytes": 4472
+  },
+  {
+   "path": "items/system/frying-pan/thumbnail.png",
+   "bytes": 52771
+  },
+  {
+   "path": "items/system/guitar/floor-plan.png",
+   "bytes": 6599
+  },
+  {
+   "path": "items/system/guitar/model.glb",
+   "bytes": 8832
+  },
+  {
+   "path": "items/system/guitar/thumbnail.png",
+   "bytes": 48223
+  },
+  {
+   "path": "items/system/herman-miller-aeron-mo8x36k9/floor-plan.png",
+   "bytes": 74564
+  },
+  {
+   "path": "items/system/herman-miller-aeron-mo8x36k9/models/item_model_YshL4maC8cHtry5c.glb",
+   "bytes": 117988
+  },
+  {
+   "path": "items/system/herman-miller-aeron-mo8x36k9/thumbnail.png",
+   "bytes": 260133
+  },
+  {
+   "path": "items/system/hood/floor-plan.png",
+   "bytes": 5053
+  },
+  {
+   "path": "items/system/hood/model.glb",
+   "bytes": 3312
+  },
+  {
+   "path": "items/system/hood/thumbnail.png",
+   "bytes": 109088
+  },
+  {
+   "path": "items/system/hydrant/floor-plan.png",
+   "bytes": 78254
+  },
+  {
+   "path": "items/system/hydrant/model.glb",
+   "bytes": 3144
+  },
+  {
+   "path": "items/system/hydrant/thumbnail.png",
+   "bytes": 94021
+  },
+  {
+   "path": "items/system/ikea-kallax-1x4-moa2y49n/floor-plan.png",
+   "bytes": 3199
+  },
+  {
+   "path": "items/system/ikea-kallax-1x4-moa2y49n/models/item_model_ocVHS1SWDex5DeYc.glb",
+   "bytes": 1884
+  },
+  {
+   "path": "items/system/ikea-kallax-1x4-moa2y49n/thumbnail.png",
+   "bytes": 296334
+  },
+  {
+   "path": "items/system/indoor-plant/floor-plan.png",
+   "bytes": 191805
+  },
+  {
+   "path": "items/system/indoor-plant/model.glb",
+   "bytes": 40700
+  },
+  {
+   "path": "items/system/indoor-plant/thumbnail.png",
+   "bytes": 98525
+  },
+  {
+   "path": "items/system/iron/floor-plan.png",
+   "bytes": 33371
+  },
+  {
+   "path": "items/system/iron/model.glb",
+   "bytes": 9780
+  },
+  {
+   "path": "items/system/iron/thumbnail.png",
+   "bytes": 96980
+  },
+  {
+   "path": "items/system/ironing-board/floor-plan.png",
+   "bytes": 9518
+  },
+  {
+   "path": "items/system/ironing-board/model.glb",
+   "bytes": 7268
+  },
+  {
+   "path": "items/system/ironing-board/thumbnail.png",
+   "bytes": 75485
+  },
+  {
+   "path": "items/system/kettle/floor-plan.png",
+   "bytes": 64275
+  },
+  {
+   "path": "items/system/kettle/model.glb",
+   "bytes": 15612
+  },
+  {
+   "path": "items/system/kettle/thumbnail.png",
+   "bytes": 88524
+  },
+  {
+   "path": "items/system/kitchen-cabinet/floor-plan.png",
+   "bytes": 4620
+  },
+  {
+   "path": "items/system/kitchen-cabinet/model.glb",
+   "bytes": 6488
+  },
+  {
+   "path": "items/system/kitchen-cabinet/thumbnail.png",
+   "bytes": 152537
+  },
+  {
+   "path": "items/system/kitchen-counter/floor-plan.png",
+   "bytes": 2055
+  },
+  {
+   "path": "items/system/kitchen-counter/model.glb",
+   "bytes": 2580
+  },
+  {
+   "path": "items/system/kitchen-counter/thumbnail.png",
+   "bytes": 121332
+  },
+  {
+   "path": "items/system/kitchen-shelf/floor-plan.png",
+   "bytes": 1923
+  },
+  {
+   "path": "items/system/kitchen-shelf/model.glb",
+   "bytes": 3400
+  },
+  {
+   "path": "items/system/kitchen-shelf/thumbnail.png",
+   "bytes": 103571
+  },
+  {
+   "path": "items/system/kitchen-utensils/floor-plan.png",
+   "bytes": 112254
+  },
+  {
+   "path": "items/system/kitchen-utensils/model.glb",
+   "bytes": 6524
+  },
+  {
+   "path": "items/system/kitchen-utensils/thumbnail.png",
+   "bytes": 78875
+  },
+  {
+   "path": "items/system/kitchen/floor-plan.png",
+   "bytes": 5155
+  },
+  {
+   "path": "items/system/kitchen/model.glb",
+   "bytes": 7208
+  },
+  {
+   "path": "items/system/kitchen/thumbnail.png",
+   "bytes": 86619
+  },
+  {
+   "path": "items/system/laundry-bag/floor-plan.png",
+   "bytes": 13053
+  },
+  {
+   "path": "items/system/laundry-bag/model.glb",
+   "bytes": 4312
+  },
+  {
+   "path": "items/system/laundry-bag/thumbnail.png",
+   "bytes": 70438
+  },
+  {
+   "path": "items/system/livingroom-chair/floor-plan.png",
+   "bytes": 37599
+  },
+  {
+   "path": "items/system/livingroom-chair/model.glb",
+   "bytes": 5924
+  },
+  {
+   "path": "items/system/livingroom-chair/thumbnail.png",
+   "bytes": 130261
+  },
+  {
+   "path": "items/system/lounge-chair/floor-plan.png",
+   "bytes": 16283
+  },
+  {
+   "path": "items/system/lounge-chair/model.glb",
+   "bytes": 5256
+  },
+  {
+   "path": "items/system/lounge-chair/thumbnail.png",
+   "bytes": 100903
+  },
+  {
+   "path": "items/system/microwave/floor-plan.png",
+   "bytes": 5826
+  },
+  {
+   "path": "items/system/microwave/model.glb",
+   "bytes": 5884
+  },
+  {
+   "path": "items/system/microwave/thumbnail.png",
+   "bytes": 106565
+  },
+  {
+   "path": "items/system/my-leather-couch-modp80ha/floor-plan.png",
+   "bytes": 38596
+  },
+  {
+   "path": "items/system/my-leather-couch-modp80ha/models/item_model_kgORhH5vwFK8xub0.glb",
+   "bytes": 232492
+  },
+  {
+   "path": "items/system/my-leather-couch-modp80ha/thumbnail.png",
+   "bytes": 199718
+  },
+  {
+   "path": "items/system/office-chair/floor-plan.png",
+   "bytes": 65868
+  },
+  {
+   "path": "items/system/office-chair/model.glb",
+   "bytes": 11500
+  },
+  {
+   "path": "items/system/office-chair/thumbnail.png",
+   "bytes": 105989
+  },
+  {
+   "path": "items/system/office-table/floor-plan.png",
+   "bytes": 108504
+  },
+  {
+   "path": "items/system/office-table/model.glb",
+   "bytes": 3780
+  },
+  {
+   "path": "items/system/office-table/thumbnail.png",
+   "bytes": 156798
+  },
+  {
+   "path": "items/system/outdoor-playhouse/floor-plan.png",
+   "bytes": 24559
+  },
+  {
+   "path": "items/system/outdoor-playhouse/model.glb",
+   "bytes": 18740
+  },
+  {
+   "path": "items/system/outdoor-playhouse/thumbnail.png",
+   "bytes": 141562
+  },
+  {
+   "path": "items/system/palm/floor-plan.png",
+   "bytes": 101285
+  },
+  {
+   "path": "items/system/palm/model.glb",
+   "bytes": 14868
+  },
+  {
+   "path": "items/system/palm/thumbnail.png",
+   "bytes": 92897
+  },
+  {
+   "path": "items/system/parking-spot/floor-plan.png",
+   "bytes": 2916
+  },
+  {
+   "path": "items/system/parking-spot/model.glb",
+   "bytes": 2624
+  },
+  {
+   "path": "items/system/parking-spot/thumbnail.png",
+   "bytes": 89596
+  },
+  {
+   "path": "items/system/patio-umbrella/floor-plan.png",
+   "bytes": 46229
+  },
+  {
+   "path": "items/system/patio-umbrella/model.glb",
+   "bytes": 3924
+  },
+  {
+   "path": "items/system/patio-umbrella/thumbnail.png",
+   "bytes": 56838
+  },
+  {
+   "path": "items/system/piano/floor-plan.png",
+   "bytes": 22670
+  },
+  {
+   "path": "items/system/piano/model.glb",
+   "bytes": 432080
+  },
+  {
+   "path": "items/system/piano/thumbnail.png",
+   "bytes": 189237
+  },
+  {
+   "path": "items/system/picture/floor-plan.png",
+   "bytes": 484
+  },
+  {
+   "path": "items/system/picture/model.glb",
+   "bytes": 3544
+  },
+  {
+   "path": "items/system/picture/thumbnail.png",
+   "bytes": 173494
+  },
+  {
+   "path": "items/system/pillar/floor-plan.png",
+   "bytes": 44939
+  },
+  {
+   "path": "items/system/pillar/model.glb",
+   "bytes": 2488
+  },
+  {
+   "path": "items/system/pillar/thumbnail.png",
+   "bytes": 59455
+  },
+  {
+   "path": "items/system/pool-table/floor-plan.png",
+   "bytes": 63420
+  },
+  {
+   "path": "items/system/pool-table/model.glb",
+   "bytes": 66096
+  },
+  {
+   "path": "items/system/pool-table/thumbnail.png",
+   "bytes": 153744
+  },
+  {
+   "path": "items/system/power-outlet-moa09g0o/floor-plan.png",
+   "bytes": 14366
+  },
+  {
+   "path": "items/system/power-outlet-moa09g0o/models/item_model_PTDhACPTrrrtLLeI.glb",
+   "bytes": 124468
+  },
+  {
+   "path": "items/system/power-outlet-moa09g0o/thumbnail.png",
+   "bytes": 271674
+  },
+  {
+   "path": "items/system/recessed-light/floor-plan.png",
+   "bytes": 68811
+  },
+  {
+   "path": "items/system/recessed-light/model.glb",
+   "bytes": 24604
+  },
+  {
+   "path": "items/system/recessed-light/thumbnail.png",
+   "bytes": 103647
+  },
+  {
+   "path": "items/system/rectangular-carpet/floor-plan.png",
+   "bytes": 23241
+  },
+  {
+   "path": "items/system/rectangular-carpet/model.glb",
+   "bytes": 7976
+  },
+  {
+   "path": "items/system/rectangular-carpet/thumbnail.png",
+   "bytes": 91687
+  },
+  {
+   "path": "items/system/round-carpet/floor-plan.png",
+   "bytes": 64627
+  },
+  {
+   "path": "items/system/round-carpet/model.glb",
+   "bytes": 7228
+  },
+  {
+   "path": "items/system/round-carpet/thumbnail.png",
+   "bytes": 123682
+  },
+  {
+   "path": "items/system/round-mirror/floor-plan.png",
+   "bytes": 1079
+  },
+  {
+   "path": "items/system/round-mirror/model.glb",
+   "bytes": 3240
+  },
+  {
+   "path": "items/system/round-mirror/thumbnail.png",
+   "bytes": 67270
+  },
+  {
+   "path": "items/system/scooter/floor-plan.png",
+   "bytes": 16063
+  },
+  {
+   "path": "items/system/scooter/model.glb",
+   "bytes": 10304
+  },
+  {
+   "path": "items/system/scooter/thumbnail.png",
+   "bytes": 43093
+  },
+  {
+   "path": "items/system/sewing-machine/floor-plan.png",
+   "bytes": 30402
+  },
+  {
+   "path": "items/system/sewing-machine/model.glb",
+   "bytes": 9212
+  },
+  {
+   "path": "items/system/sewing-machine/thumbnail.png",
+   "bytes": 152352
+  },
+  {
+   "path": "items/system/shelf/floor-plan.png",
+   "bytes": 2736
+  },
+  {
+   "path": "items/system/shelf/model.glb",
+   "bytes": 1512
+  },
+  {
+   "path": "items/system/shelf/thumbnail.png",
+   "bytes": 103192
+  },
+  {
+   "path": "items/system/shower-angle/floor-plan.png",
+   "bytes": 30896
+  },
+  {
+   "path": "items/system/shower-angle/model.glb",
+   "bytes": 15876
+  },
+  {
+   "path": "items/system/shower-angle/thumbnail.png",
+   "bytes": 78987
+  },
+  {
+   "path": "items/system/shower-rug/floor-plan.png",
+   "bytes": 33668
+  },
+  {
+   "path": "items/system/shower-rug/model.glb",
+   "bytes": 4180
+  },
+  {
+   "path": "items/system/shower-rug/thumbnail.png",
+   "bytes": 71948
+  },
+  {
+   "path": "items/system/shower-square/floor-plan.png",
+   "bytes": 66727
+  },
+  {
+   "path": "items/system/shower-square/model.glb",
+   "bytes": 12608
+  },
+  {
+   "path": "items/system/shower-square/thumbnail.png",
+   "bytes": 53905
+  },
+  {
+   "path": "items/system/single-bed/floor-plan.png",
+   "bytes": 33602
+  },
+  {
+   "path": "items/system/single-bed/model.glb",
+   "bytes": 6168
+  },
+  {
+   "path": "items/system/single-bed/thumbnail.png",
+   "bytes": 95613
+  },
+  {
+   "path": "items/system/skate/floor-plan.png",
+   "bytes": 3409
+  },
+  {
+   "path": "items/system/skate/model.glb",
+   "bytes": 4904
+  },
+  {
+   "path": "items/system/skate/thumbnail.png",
+   "bytes": 45778
+  },
+  {
+   "path": "items/system/small-indoor-plant/floor-plan.png",
+   "bytes": 105995
+  },
+  {
+   "path": "items/system/small-indoor-plant/model.glb",
+   "bytes": 9680
+  },
+  {
+   "path": "items/system/small-indoor-plant/thumbnail.png",
+   "bytes": 94719
+  },
+  {
+   "path": "items/system/smoke-detector/floor-plan.png",
+   "bytes": 31410
+  },
+  {
+   "path": "items/system/smoke-detector/model.glb",
+   "bytes": 16396
+  },
+  {
+   "path": "items/system/smoke-detector/thumbnail.png",
+   "bytes": 72859
+  },
+  {
+   "path": "items/system/sofa/floor-plan.png",
+   "bytes": 41168
+  },
+  {
+   "path": "items/system/sofa/model.glb",
+   "bytes": 7908
+  },
+  {
+   "path": "items/system/sofa/thumbnail.png",
+   "bytes": 137566
+  },
+  {
+   "path": "items/system/sprinkler/floor-plan.png",
+   "bytes": 14693
+  },
+  {
+   "path": "items/system/sprinkler/model.glb",
+   "bytes": 52920
+  },
+  {
+   "path": "items/system/sprinkler/thumbnail.png",
+   "bytes": 113478
+  },
+  {
+   "path": "items/system/standing-desk-mo8wgz95/floor-plan.png",
+   "bytes": 8997
+  },
+  {
+   "path": "items/system/standing-desk-mo8wgz95/models/item_model_zzZ58018waP8VY6Z.glb",
+   "bytes": 100608
+  },
+  {
+   "path": "items/system/standing-desk-mo8wgz95/thumbnail.png",
+   "bytes": 132388
+  },
+  {
+   "path": "items/system/stereo-speaker/floor-plan.png",
+   "bytes": 292858
+  },
+  {
+   "path": "items/system/stereo-speaker/model.glb",
+   "bytes": 4552
+  },
+  {
+   "path": "items/system/stereo-speaker/thumbnail.png",
+   "bytes": 103676
+  },
+  {
+   "path": "items/system/stool/floor-plan.png",
+   "bytes": 48135
+  },
+  {
+   "path": "items/system/stool/model.glb",
+   "bytes": 5036
+  },
+  {
+   "path": "items/system/stool/thumbnail.png",
+   "bytes": 71626
+  },
+  {
+   "path": "items/system/stove/floor-plan.png",
+   "bytes": 10187
+  },
+  {
+   "path": "items/system/stove/model.glb",
+   "bytes": 10668
+  },
+  {
+   "path": "items/system/stove/thumbnail.png",
+   "bytes": 163438
+  },
+  {
+   "path": "items/system/sunbed/floor-plan.png",
+   "bytes": 11551
+  },
+  {
+   "path": "items/system/sunbed/model.glb",
+   "bytes": 3912
+  },
+  {
+   "path": "items/system/sunbed/thumbnail.png",
+   "bytes": 103006
+  },
+  {
+   "path": "items/system/table-lamp/floor-plan.png",
+   "bytes": 34746
+  },
+  {
+   "path": "items/system/table-lamp/model.glb",
+   "bytes": 9224
+  },
+  {
+   "path": "items/system/table-lamp/thumbnail.png",
+   "bytes": 74982
+  },
+  {
+   "path": "items/system/television/floor-plan.png",
+   "bytes": 5468
+  },
+  {
+   "path": "items/system/television/model.glb",
+   "bytes": 3332
+  },
+  {
+   "path": "items/system/television/thumbnail.png",
+   "bytes": 131025
+  },
+  {
+   "path": "items/system/tesla/floor-plan.png",
+   "bytes": 89386
+  },
+  {
+   "path": "items/system/tesla/model.glb",
+   "bytes": 100340
+  },
+  {
+   "path": "items/system/tesla/thumbnail.png",
+   "bytes": 145617
+  },
+  {
+   "path": "items/system/thermostat/floor-plan.png",
+   "bytes": 1104
+  },
+  {
+   "path": "items/system/thermostat/model.glb",
+   "bytes": 11412
+  },
+  {
+   "path": "items/system/thermostat/thumbnail.png",
+   "bytes": 121581
+  },
+  {
+   "path": "items/system/threadmill/floor-plan.png",
+   "bytes": 19608
+  },
+  {
+   "path": "items/system/threadmill/model.glb",
+   "bytes": 18156
+  },
+  {
+   "path": "items/system/threadmill/thumbnail.png",
+   "bytes": 126565
+  },
+  {
+   "path": "items/system/toaster/floor-plan.png",
+   "bytes": 42045
+  },
+  {
+   "path": "items/system/toaster/model.glb",
+   "bytes": 3624
+  },
+  {
+   "path": "items/system/toaster/thumbnail.png",
+   "bytes": 87688
+  },
+  {
+   "path": "items/system/toilet-paper/floor-plan.png",
+   "bytes": 21896
+  },
+  {
+   "path": "items/system/toilet-paper/model.glb",
+   "bytes": 5468
+  },
+  {
+   "path": "items/system/toilet-paper/thumbnail.png",
+   "bytes": 106142
+  },
+  {
+   "path": "items/system/toilet/floor-plan.png",
+   "bytes": 36002
+  },
+  {
+   "path": "items/system/toilet/model.glb",
+   "bytes": 4192
+  },
+  {
+   "path": "items/system/toilet/thumbnail.png",
+   "bytes": 67830
+  },
+  {
+   "path": "items/system/toy/floor-plan.png",
+   "bytes": 109369
+  },
+  {
+   "path": "items/system/toy/model.glb",
+   "bytes": 18884
+  },
+  {
+   "path": "items/system/toy/thumbnail.png",
+   "bytes": 118575
+  },
+  {
+   "path": "items/system/trash-bin/floor-plan.png",
+   "bytes": 49425
+  },
+  {
+   "path": "items/system/trash-bin/model.glb",
+   "bytes": 4020
+  },
+  {
+   "path": "items/system/trash-bin/thumbnail.png",
+   "bytes": 88701
+  },
+  {
+   "path": "items/system/tree/floor-plan.png",
+   "bytes": 122889
+  },
+  {
+   "path": "items/system/tree/model.glb",
+   "bytes": 6496
+  },
+  {
+   "path": "items/system/tree/thumbnail.png",
+   "bytes": 168956
+  },
+  {
+   "path": "items/system/tv-stand/floor-plan.png",
+   "bytes": 32296
+  },
+  {
+   "path": "items/system/tv-stand/model.glb",
+   "bytes": 1664
+  },
+  {
+   "path": "items/system/tv-stand/thumbnail.png",
+   "bytes": 96627
+  },
+  {
+   "path": "items/system/washing-machine/floor-plan.png",
+   "bytes": 8332
+  },
+  {
+   "path": "items/system/washing-machine/model.glb",
+   "bytes": 5356
+  },
+  {
+   "path": "items/system/washing-machine/thumbnail.png",
+   "bytes": 177392
+  },
+  {
+   "path": "items/system/wine-bottle/floor-plan.png",
+   "bytes": 24495
+  },
+  {
+   "path": "items/system/wine-bottle/model.glb",
+   "bytes": 5912
+  },
+  {
+   "path": "items/system/wine-bottle/thumbnail.png",
+   "bytes": 124345
+  },
+  {
+   "path": "items/system/wooden-kitchen-bar-moa2hhh4/floor-plan.png",
+   "bytes": 6546
+  },
+  {
+   "path": "items/system/wooden-kitchen-bar-moa2hhh4/models/item_model_c6iR1M2eE2I8k5M3.glb",
+   "bytes": 204440
+  },
+  {
+   "path": "items/system/wooden-kitchen-bar-moa2hhh4/thumbnail.png",
+   "bytes": 201266
+  },
+  {
+   "path": "items/users/user_7hUFMrlrAX1vtIwT/dishwasher-movn72ls/floor-plan.png",
+   "bytes": 45356
+  },
+  {
+   "path": "items/users/user_7hUFMrlrAX1vtIwT/dishwasher-movn72ls/models/item_model_fFvQuIjpPISAraGN.glb",
+   "bytes": 73928
+  },
+  {
+   "path": "items/users/user_7hUFMrlrAX1vtIwT/dishwasher-movn72ls/thumbnail.png",
+   "bytes": 95380
+  },
+  {
+   "path": "items/users/user_7hUFMrlrAX1vtIwT/fireplace-movn1fnn/floor-plan.png",
+   "bytes": 6630
+  },
+  {
+   "path": "items/users/user_7hUFMrlrAX1vtIwT/fireplace-movn1fnn/models/item_model_vNBpPC3gCrIIqFUS.glb",
+   "bytes": 48688
+  },
+  {
+   "path": "items/users/user_7hUFMrlrAX1vtIwT/fireplace-movn1fnn/thumbnail.png",
+   "bytes": 116835
+  }
+ ]
+}

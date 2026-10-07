@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "dotenv -e ../../.env.local -e ../../.env.defaults -- next dev",
     "build": "dotenv -e ../../.env.local -- next build",
+    "build:static": "node scripts/build-static.mjs",
     "start": "next start",
     "lint": "biome lint",
     "check-types": "next typegen && tsc --noEmit",

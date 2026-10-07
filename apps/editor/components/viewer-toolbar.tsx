@@ -1,5 +1,6 @@
 'use client'
 
+import { t } from '@pascal-app/editor/i18n'
 import { Icon as IconifyIcon } from '@iconify/react'
 import {
   DropdownMenu,
@@ -113,59 +114,59 @@ const VIEW_MODES: { id: ViewMode; label: string; icon: React.ReactNode }[] = [
   },
   {
     id: 'split',
-    label: 'Split',
+    label: t('Split'),
     icon: <Columns2 className="h-3 w-3" />,
   },
 ]
 
 const levelModeOrder = ['stacked', 'exploded', 'solo'] as const
 const levelModeLabels: Record<string, string> = {
-  manual: 'Stack',
-  stacked: 'Stack',
-  exploded: 'Exploded',
-  solo: 'Solo',
+  manual: t('Stack'),
+  stacked: t('Stack'),
+  exploded: t('Exploded'),
+  solo: t('Solo'),
 }
 
 const wallModeOrder = ['cutaway', 'up', 'down', 'translucent'] as const
 const wallModeConfig: Record<string, { icon: string; label: string }> = {
-  up: { icon: '/icons/room.webp', label: 'Full height' },
-  cutaway: { icon: '/icons/wallcut.webp', label: 'Cutaway' },
-  down: { icon: '/icons/walllow.webp', label: 'Low' },
-  translucent: { icon: '/icons/wall.webp', label: 'Translucent' },
+  up: { icon: '/icons/room.webp', label: t('Full height') },
+  cutaway: { icon: '/icons/wallcut.webp', label: t('Cutaway') },
+  down: { icon: '/icons/walllow.webp', label: t('Low') },
+  translucent: { icon: '/icons/wall.webp', label: t('Translucent') },
 }
 
 const SHADING_OPTIONS = [
-  { id: 'solid', name: 'Solid', detail: 'Flat and fast — no ambient occlusion', icon: Box },
-  { id: 'rendered', name: 'Rendered', detail: 'Full ambient occlusion', icon: Sparkles },
+  { id: 'solid', name: t('Solid'), detail: t('Flat and fast — no ambient occlusion'), icon: Box },
+  { id: 'rendered', name: t('Rendered'), detail: t('Full ambient occlusion'), icon: Sparkles },
 ] as const
 
 const FLOORPLAN_ANNOTATION_OPTIONS = [
-  { id: 'automaticDimensions', name: 'Automatic dimensions', icon: Ruler },
-  { id: 'manualDimensions', name: 'Manual dimensions', icon: Ruler },
-  { id: 'measurements', name: 'Measurements', icon: ScanLine },
-  { id: 'openingMarks', name: 'Door/window marks', icon: Tag },
-  { id: 'structuralGrids', name: 'Structural grids & column centers', icon: Grid2X2 },
-  { id: 'roomLabels', name: 'Room labels', icon: SquareUserRound },
-  { id: 'stairAnnotations', name: 'Stair annotations', icon: Footprints },
+  { id: 'automaticDimensions', name: t('Automatic dimensions'), icon: Ruler },
+  { id: 'manualDimensions', name: t('Manual dimensions'), icon: Ruler },
+  { id: 'measurements', name: t('Measurements'), icon: ScanLine },
+  { id: 'openingMarks', name: t('Door/window marks'), icon: Tag },
+  { id: 'structuralGrids', name: t('Structural grids & column centers'), icon: Grid2X2 },
+  { id: 'roomLabels', name: t('Room labels'), icon: SquareUserRound },
+  { id: 'stairAnnotations', name: t('Stair annotations'), icon: Footprints },
 ] as const
 
 const FLOORPLAN_MODE_OPTIONS = [
   {
     id: 'default',
-    name: 'Default',
+    name: t('Default'),
     detail: 'Clean plan; dimensions appear with selection',
   },
   {
     id: 'expert',
-    name: 'Expert',
+    name: t('Expert'),
     detail: 'Full documentation and annotation controls',
   },
 ] as const
 
 const FLOORPLAN_WALL_DIMENSION_REFERENCE_OPTIONS = [
-  { id: 'finished-faces', name: 'Finished faces', detail: 'Full wall thickness' },
-  { id: 'centerline', name: 'Wall centerline', detail: 'Single wall axis' },
-  { id: 'stud-faces', name: 'Face of stud', detail: 'Structural core face' },
+  { id: 'finished-faces', name: t('Finished faces'), detail: t('Full wall thickness') },
+  { id: 'centerline', name: t('Wall centerline'), detail: t('Single wall axis') },
+  { id: 'stud-faces', name: t('Face of stud'), detail: t('Structural core face') },
 ] as const
 
 function ViewModeControl() {
@@ -244,7 +245,7 @@ function LevelModeToggle() {
     if (next) setLevelMode(next)
   }
 
-  const label = `Levels: ${levelMode === 'manual' ? 'Manual' : (levelModeLabels[levelMode] ?? 'Stack')}`
+  const label = `${t('Levels')}: ${levelMode === 'manual' ? t('Manual') : (levelModeLabels[levelMode] ?? t('Stack'))}`
 
   return (
     <ToolbarTooltip label={label}>
@@ -264,7 +265,7 @@ function LevelModeToggle() {
         ) : (
           <IconifyIcon height={14} icon="charm:stack-push" width={14} />
         )}
-        <span className="font-medium text-xs">{levelModeLabels[levelMode] ?? 'Stack'}</span>
+        <span className="font-medium text-xs">{levelModeLabels[levelMode] ?? t('Stack')}</span>
       </button>
     </ToolbarTooltip>
   )
@@ -305,9 +306,9 @@ function WallModeToggle() {
 // camera projection, units, render mode, edges and scene theme.
 
 const EDGE_OPTIONS = [
-  { id: 'off', name: 'Off', detail: 'No edge lines' },
-  { id: 'soft', name: 'Soft', detail: 'Faint outline of major creases' },
-  { id: 'strong', name: 'Strong', detail: 'Crisp, opaque edge lines' },
+  { id: 'off', name: t('Off'), detail: t('No edge lines') },
+  { id: 'soft', name: t('Soft'), detail: t('Faint outline of major creases') },
+  { id: 'strong', name: t('Strong'), detail: t('Crisp, opaque edge lines') },
 ] as const satisfies readonly { id: EdgeMode; name: string; detail: string }[]
 
 const SUBMENU_CONTENT_CLASS = 'min-w-56 rounded-xl border-border/45 bg-popover/95 backdrop-blur-xl'
@@ -358,15 +359,15 @@ function DisplayMenu() {
 
   return (
     <DropdownMenu>
-      <ToolbarTooltip label="Display settings">
+      <ToolbarTooltip label={t('Display settings')}>
         <DropdownMenuTrigger asChild>
           <button
-            aria-label="Display settings"
+            aria-label={t('Display settings')}
             className={cn(TOOLBAR_BTN, 'w-auto gap-1.5 px-2.5 text-foreground/90')}
             type="button"
           >
             <SlidersHorizontal className="h-3.5 w-3.5 shrink-0" />
-            <span className="font-medium text-xs">Display</span>
+            <span className="font-medium text-xs">{t('Display')}</span>
           </button>
         </DropdownMenuTrigger>
       </ToolbarTooltip>
@@ -378,7 +379,7 @@ function DisplayMenu() {
       >
         <DropdownMenuItem onSelect={(e) => keepOpen(e, () => setShowGrid(!showGrid))}>
           <Grid2X2 className="h-4 w-4" />
-          <span>Grid</span>
+          <span>{t('Grid')}</span>
           {showGrid ? (
             <Eye className="ml-auto h-4 w-4 text-foreground" />
           ) : (
@@ -403,7 +404,7 @@ function DisplayMenu() {
             <DropdownMenuSub>
               <DropdownMenuSubTrigger>
                 <Layers3 className="h-4 w-4" />
-                <span>Floor plan mode</span>
+                <span>{t('Floor plan mode')}</span>
                 <span className="ml-auto text-muted-foreground text-xs">
                   {floorplanMode === 'default' ? 'Default' : 'Expert'}
                 </span>
@@ -427,7 +428,7 @@ function DisplayMenu() {
                 <DropdownMenuSub>
                   <DropdownMenuSubTrigger>
                     <Layers3 className="h-4 w-4" />
-                    <span>Floor plan annotations</span>
+                    <span>{t('Floor plan annotations')}</span>
                   </DropdownMenuSubTrigger>
                   <DropdownMenuSubContent className={SUBMENU_CONTENT_CLASS}>
                     {FLOORPLAN_ANNOTATION_OPTIONS.map((option) => {
@@ -455,7 +456,7 @@ function DisplayMenu() {
                 <DropdownMenuSub>
                   <DropdownMenuSubTrigger>
                     <Ruler className="h-4 w-4" />
-                    <span>Wall dimensions</span>
+                    <span>{t('Wall dimensions')}</span>
                     <span className="ml-auto text-muted-foreground text-xs">
                       {
                         FLOORPLAN_WALL_DIMENSION_REFERENCE_OPTIONS.find(
@@ -489,14 +490,14 @@ function DisplayMenu() {
         ) : null}
         <DropdownMenuItem onSelect={(e) => keepOpen(e, () => setMagneticSnap(!magneticSnap))}>
           <Magnet className="h-4 w-4" />
-          <span>Magnetic snap</span>
+          <span>{t('Magnetic snap')}</span>
           <span className="ml-auto text-muted-foreground text-xs">
             {magneticSnap ? 'On' : 'Off'}
           </span>
         </DropdownMenuItem>
         <DropdownMenuItem onSelect={(e) => keepOpen(e, () => setShadows(!shadows))}>
           <Contrast className="h-4 w-4" />
-          <span>Shadows</span>
+          <span>{t('Shadows')}</span>
           <span className="ml-auto text-muted-foreground text-xs">{shadows ? 'On' : 'Off'}</span>
         </DropdownMenuItem>
         <DropdownMenuItem
@@ -511,7 +512,7 @@ function DisplayMenu() {
             icon={cameraMode === 'perspective' ? 'icon-park-outline:perspective' : 'vaadin:grid'}
             width={16}
           />
-          <span>Camera</span>
+          <span>{t('Camera')}</span>
           <span className="ml-auto text-muted-foreground text-xs">
             {cameraMode === 'perspective' ? 'Perspective' : 'Orthographic'}
           </span>
@@ -521,7 +522,7 @@ function DisplayMenu() {
             <span className="flex h-4 w-4 items-center justify-center font-semibold text-[10px]">
               {unit === 'imperial' ? 'ft' : metricNotation === 'millimeters' ? 'mm' : 'm'}
             </span>
-            <span>Units</span>
+            <span>{t('Units')}</span>
             <span className="ml-auto text-muted-foreground text-xs">
               {unit === 'imperial'
                 ? 'Feet & inches'
@@ -535,7 +536,7 @@ function DisplayMenu() {
               <span className="flex h-4 w-4 items-center justify-center font-semibold text-[10px]">
                 m
               </span>
-              <span>Meters</span>
+              <span>{t('Meters')}</span>
               {unit === 'metric' && metricNotation === 'meters' ? (
                 <Check className="ml-auto h-4 w-4 text-foreground" />
               ) : null}
@@ -544,7 +545,7 @@ function DisplayMenu() {
               <span className="flex h-4 w-4 items-center justify-center font-semibold text-[10px]">
                 mm
               </span>
-              <span>Millimeters</span>
+              <span>{t('Millimeters')}</span>
               {unit === 'metric' && metricNotation === 'millimeters' ? (
                 <Check className="ml-auto h-4 w-4 text-foreground" />
               ) : null}
@@ -553,7 +554,7 @@ function DisplayMenu() {
               <span className="flex h-4 w-4 items-center justify-center font-semibold text-[10px]">
                 ft
               </span>
-              <span>Feet & inches</span>
+              <span>{t('Feet & inches')}</span>
               {unit === 'imperial' ? <Check className="ml-auto h-4 w-4 text-foreground" /> : null}
             </DropdownMenuItem>
           </DropdownMenuSubContent>
@@ -564,7 +565,7 @@ function DisplayMenu() {
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
             <activeShading.icon className="h-4 w-4" />
-            <span>Render</span>
+            <span>{t('Render')}</span>
             <span className="ml-auto text-muted-foreground text-xs">{activeShading.name}</span>
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent className={SUBMENU_CONTENT_CLASS}>
@@ -589,7 +590,7 @@ function DisplayMenu() {
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
             <PenLine className="h-4 w-4" />
-            <span>Edges</span>
+            <span>{t('Edges')}</span>
             <span className="ml-auto text-muted-foreground text-xs">{activeEdges.name}</span>
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent className={SUBMENU_CONTENT_CLASS}>
@@ -608,7 +609,7 @@ function DisplayMenu() {
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
             <SwatchBook className="h-4 w-4" />
-            <span>Theme</span>
+            <span>{t('Theme')}</span>
             <span className="ml-auto truncate text-muted-foreground text-xs">
               {activeTheme.name}
             </span>
@@ -656,7 +657,7 @@ function WalkthroughButton() {
   }, [isFirstPersonMode, setFirstPersonMode])
 
   return (
-    <ToolbarTooltip label="Walkthrough">
+    <ToolbarTooltip label={t('Walkthrough')}>
       <button
         className={cn(
           TOOLBAR_BTN,
@@ -673,14 +674,14 @@ function WalkthroughButton() {
 
 function PreviewButton() {
   return (
-    <ToolbarTooltip label="Preview mode">
+    <ToolbarTooltip label={t('Preview mode')}>
       <button
         className="flex items-center gap-1.5 px-2.5 font-medium text-muted-foreground/80 text-xs transition-colors hover:bg-white/8 hover:text-foreground/90"
         onClick={() => useEditor.getState().setPreviewMode(true)}
         type="button"
       >
         <Eye className="h-3.5 w-3.5 shrink-0" />
-        <span>Preview</span>
+        <span>{t('Preview')}</span>
       </button>
     </ToolbarTooltip>
   )

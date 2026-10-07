@@ -24,6 +24,9 @@ function EditorItemsPanel() {
   return <ItemsPanel showSourceFilter={false} showTagFilters={false} />
 }
 
+// 静的版（GitHub Pages）にはシーン一覧ページが無いため、案内バナーを出さない
+const IS_STATIC_EXPORT = process.env.NEXT_PUBLIC_PASCAL_STATIC === '1'
+
 const SIDEBAR_TABS = [
   {
     id: 'site',
@@ -117,7 +120,7 @@ export default function Home() {
         <WebXRFeatureConsumer>
           {(vr) => (
             <>
-              {PROJECT_ID === 'local-editor' && (
+              {PROJECT_ID === 'local-editor' && !IS_STATIC_EXPORT && (
                 <div className="pointer-events-none absolute top-14 left-1/2 z-40 -translate-x-1/2">
                   <div className="pointer-events-none flex max-w-[min(92vw,42rem)] flex-wrap items-center justify-center gap-x-3 gap-y-1 rounded-full border border-border/60 bg-background/90 px-4 py-1.5 text-xs shadow-sm backdrop-blur">
                     <span className="text-muted-foreground">

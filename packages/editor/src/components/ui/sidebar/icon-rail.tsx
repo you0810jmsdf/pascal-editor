@@ -1,5 +1,6 @@
 'use client'
 
+import { t } from '../../../lib/i18n'
 import { Plus } from 'lucide-react'
 import type { ComponentType, ReactNode } from 'react'
 import {
@@ -75,7 +76,7 @@ export function IconRail({
             </span>
           </button>
         </TooltipTrigger>
-        <TooltipContent side="right">{panel.label}</TooltipContent>
+        <TooltipContent side="right">{t(panel.label)}</TooltipContent>
       </Tooltip>
     )
   }
@@ -108,7 +109,7 @@ export function IconRail({
                 type="button"
               >
                 <img
-                  alt={panel.label}
+                  alt={t(panel.label)}
                   className={cn(
                     'h-6 w-6 object-contain transition-all',
                     !isActive && 'opacity-50 saturate-0',
@@ -117,7 +118,7 @@ export function IconRail({
                 />
               </button>
             </TooltipTrigger>
-            <TooltipContent side="right">{panel.label}</TooltipContent>
+            <TooltipContent side="right">{t(panel.label)}</TooltipContent>
           </Tooltip>
         )
       })}
@@ -139,7 +140,7 @@ export function IconRail({
                 type="button"
               >
                 <img
-                  alt={panel.label}
+                  alt={t(panel.label)}
                   className={cn(
                     'h-6 w-6 object-contain transition-all',
                     !isActive && 'opacity-50 saturate-0',
@@ -148,7 +149,7 @@ export function IconRail({
                 />
               </button>
             </TooltipTrigger>
-            <TooltipContent side="right">{panel.label}</TooltipContent>
+            <TooltipContent side="right">{t(panel.label)}</TooltipContent>
           </Tooltip>
         )
       })}

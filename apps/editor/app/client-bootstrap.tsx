@@ -9,6 +9,8 @@
 // `loaded` guard inside `../lib/bootstrap` keeps the side effect
 // idempotent under HMR.
 import '../lib/bootstrap'
+import '../lib/iconify-offline'
+import '../lib/static-decoders'
 import { type ReactNode, useEffect } from 'react'
 
 export function ClientBootstrap({

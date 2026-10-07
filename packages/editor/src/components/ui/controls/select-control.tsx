@@ -1,5 +1,6 @@
 'use client'
 
+import { tn } from '../../../lib/i18n'
 import { ChevronDown } from 'lucide-react'
 import { cn } from '../../../lib/utils'
 import {
@@ -32,7 +33,7 @@ export function SelectControl<T extends string>({
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button
-          aria-label={label}
+          aria-label={tn(label)}
           className={cn(
             'group flex h-10 w-full items-center justify-between gap-2 rounded-lg border border-border/50 bg-[#2C2C2E] px-3 text-sm transition-colors hover:bg-[#3e3e3e] data-[state=open]:bg-[#3e3e3e]',
             className,
@@ -40,7 +41,7 @@ export function SelectControl<T extends string>({
           type="button"
         >
           <span className="select-none text-muted-foreground transition-colors group-hover:text-foreground">
-            {label}
+            {tn(label)}
           </span>
           <span className="flex min-w-0 items-center gap-1.5 text-foreground">
             <span className="truncate">{current}</span>
@@ -55,7 +56,7 @@ export function SelectControl<T extends string>({
         >
           {options.map((option) => (
             <DropdownMenuRadioItem key={option.value} value={option.value}>
-              {option.label}
+              {tn(option.label)}
             </DropdownMenuRadioItem>
           ))}
         </DropdownMenuRadioGroup>

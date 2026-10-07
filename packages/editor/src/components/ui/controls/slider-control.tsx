@@ -1,5 +1,6 @@
 'use client'
 
+import { tn } from '../../../lib/i18n'
 import { useScene } from '@pascal-app/core'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { lingoUnitSpec, measurementHint, parseMeasurement } from '../../../lib/measurement-parser'
@@ -361,7 +362,7 @@ export function SliderControl({
             <div className="h-[2px] w-[2px] rounded-full bg-current" key={i} />
           ))}
         </div>
-        <span className="font-medium">{label}</span>
+        <span className="font-medium">{tn(label)}</span>
       </div>
 
       <div className="flex-1" />
@@ -372,7 +373,7 @@ export function SliderControl({
           <>
             {hint && (
               <span className="mr-1 shrink-0 whitespace-nowrap text-[10px] text-muted-foreground/50 tabular-nums">
-                {hint}
+                {tn(hint)}
               </span>
             )}
             <input

@@ -1,3 +1,4 @@
+import { t } from '@pascal-app/editor/i18n'
 import { headers } from 'next/headers'
 import Link from 'next/link'
 import { CreateSceneButton } from '@/components/save-button'
@@ -53,26 +54,26 @@ export default async function ScenesPage() {
               className="text-muted-foreground transition-colors hover:text-foreground"
               href="/"
             >
-              Home
+              {t('Home')}
             </Link>
             <span className="text-muted-foreground">/</span>
-            <span className="font-medium text-foreground">Scenes</span>
+            <span className="font-medium text-foreground">{t('Scenes')}</span>
           </nav>
           <CreateSceneButton />
         </div>
       </header>
 
       <main className="container mx-auto max-w-5xl px-6 py-12">
-        <h1 className="mb-2 font-bold text-3xl">Your scenes</h1>
+        <h1 className="mb-2 font-bold text-3xl">{t('Your scenes')}</h1>
         <p className="mb-8 text-muted-foreground text-sm">
           {scenes.length === 0
-            ? 'No scenes yet. Create one to get started.'
-            : `${scenes.length} scene${scenes.length === 1 ? '' : 's'}.`}
+            ? t('No scenes yet. Create one to get started.')
+            : `${scenes.length} ${t('scenes')}`}
         </p>
 
         {scenes.length === 0 ? (
           <div className="rounded-xl border border-border/60 border-dashed bg-background p-12 text-center">
-            <p className="text-muted-foreground text-sm">You haven&apos;t saved any scenes yet.</p>
+            <p className="text-muted-foreground text-sm">{t('You haven&apos;t saved any scenes yet.')}</p>
             <div className="mt-4 flex justify-center">
               <CreateSceneButton />
             </div>
@@ -94,7 +95,7 @@ export default async function ScenesPage() {
                         src={scene.thumbnailUrl}
                       />
                     ) : (
-                      <span className="text-muted-foreground text-xs">No thumbnail</span>
+                      <span className="text-muted-foreground text-xs">{t('No thumbnail')}</span>
                     )}
                   </div>
                   <div className="mt-3">

@@ -51,7 +51,7 @@ function pascalStorageOrigin(): string | null {
 function isAppMaterialUrl(src: string): boolean {
   try {
     const url = new URL(src)
-    return url.origin === new URL(ASSETS_CDN_URL).origin && url.pathname.startsWith('/material/')
+    return url.origin === new URL(ASSETS_CDN_URL).origin && url.pathname.includes('/material/')
   } catch {
     return false
   }

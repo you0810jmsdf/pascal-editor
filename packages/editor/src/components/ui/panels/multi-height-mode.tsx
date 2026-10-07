@@ -1,5 +1,6 @@
 'use client'
 
+import { t } from '../../../lib/i18n'
 import {
   type AnyNode,
   type AnyNodeId,
@@ -151,13 +152,13 @@ export function MultiHeightModeField({
   const sliderMixed = storedHeight.kind === 'mixed' || mixedMode
   const currentLabel = Number.isFinite(liveHeight)
     ? formatLinearMeasurement(liveHeight, unit, metricNotation)
-    : 'Mixed'
+    : t('Mixed')
 
   return (
     <>
       {nodeType === 'wall' && (
         <div className="px-1 font-medium text-[10px] text-muted-foreground/80 uppercase tracking-wider">
-          Top
+          {t('Top')}
         </div>
       )}
       <SegmentedControl
@@ -170,7 +171,7 @@ export function MultiHeightModeField({
         value={mode.kind === 'same' ? mode.value : 'storey'}
       />
       {isFollows ? (
-        <div className="px-1 text-[11px] text-muted-foreground">Currently {currentLabel}</div>
+        <div className="px-1 text-[11px] text-muted-foreground">{t('Currently')} {currentLabel}</div>
       ) : isCustom ? (
         <SliderControl
           label="Height"

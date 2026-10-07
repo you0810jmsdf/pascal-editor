@@ -1,5 +1,6 @@
 'use client'
 
+import { tn } from '../../../lib/i18n'
 import { useScene } from '@pascal-app/core'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { lingoUnitSpec, measurementHint, parseMeasurement } from '../../../lib/measurement-parser'
@@ -326,7 +327,7 @@ export function MetricControl({
         )}
         onPointerDown={handlePointerDown}
       >
-        {label}
+        {tn(label)}
       </div>
 
       <div className="flex shrink-0 justify-end">
@@ -334,7 +335,7 @@ export function MetricControl({
           <div className="flex items-center">
             {hint && (
               <span className="mr-1.5 shrink-0 whitespace-nowrap text-[11px] text-muted-foreground/50 tabular-nums">
-                {hint}
+                {tn(hint)}
               </span>
             )}
             <input

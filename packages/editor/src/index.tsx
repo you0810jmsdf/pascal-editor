@@ -18,6 +18,7 @@ export {
   useScene,
 } from '@pascal-app/core'
 export { useViewer } from '@pascal-app/viewer'
+export { t, tf } from './lib/i18n'
 export type { EditorProps } from './components/editor'
 export { default as Editor } from './components/editor'
 export { ActionMenuButton } from './components/editor/action-menu-button'

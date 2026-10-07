@@ -1,5 +1,6 @@
 'use client'
 
+import { tn } from '../../../lib/i18n'
 import { cn } from '../../../lib/utils'
 
 interface ActionButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -17,7 +18,7 @@ export function ActionButton({ icon, label, className, ...props }: ActionButtonP
       )}
     >
       {icon}
-      <span>{label}</span>
+      <span>{tn(label)}</span>
     </button>
   )
 }

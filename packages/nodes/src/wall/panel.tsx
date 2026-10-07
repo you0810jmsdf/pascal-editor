@@ -1,5 +1,6 @@
 'use client'
 
+import { t } from '@pascal-app/editor/i18n'
 import {
   type AnyNode,
   type AnyNodeId,
@@ -305,7 +306,7 @@ export default function WallPanel() {
           value={displayLength}
         />
         <div className="px-1 font-medium text-[10px] text-muted-foreground/80 uppercase tracking-wider">
-          Top
+          {t('Top')}
         </div>
         <SegmentedControl
           onChange={handleTopModeChange}
@@ -317,7 +318,7 @@ export default function WallPanel() {
         />
         {isPlaneBound ? (
           <div className="px-1 text-[11px] text-muted-foreground">
-            Currently {formatLinearMeasurement(height, unit)}
+            {t('Currently')} {formatLinearMeasurement(height, unit)}
           </div>
         ) : (
           <SliderControl
@@ -340,7 +341,7 @@ export default function WallPanel() {
           />
         )}
         <div className="px-1 font-medium text-[10px] text-muted-foreground/80 uppercase tracking-wider">
-          Bottom
+          {t('Bottom')}
         </div>
         <SegmentedControl
           onChange={handleInfillChange}
@@ -390,7 +391,7 @@ export default function WallPanel() {
             value={Math.round(displayThickness * 1000) / 1000}
           />
         )}
-        <div className="px-1 font-medium text-[10px] text-muted-foreground/80">Reference</div>
+        <div className="px-1 font-medium text-[10px] text-muted-foreground/80">{t('Reference')}</div>
         {reference && (
           <SegmentedControl
             mixed={reference.value === null}
@@ -527,7 +528,7 @@ function WallTrimSection({
     <PanelSection title={title}>
       <ActionGroup>
         <ActionButton
-          label={trimValue.enabled ? `Hide ${title.toLowerCase()}` : `Show ${title.toLowerCase()}`}
+          label={t(trimValue.enabled ? `Hide ${title.toLowerCase()}` : `Show ${title.toLowerCase()}`)}
           onClick={() => updateTrim({ enabled: !trimValue.enabled })}
         />
       </ActionGroup>
@@ -814,10 +815,10 @@ function WallAssemblySection({
           }}
           value={stack?.presetId ?? ''}
         >
-          <option value="">{stack ? 'Custom' : 'None (single layer)'}</option>
+          <option value="">{stack ? t('Custom') : t('None (single layer)')}</option>
           {WALL_ASSEMBLY_PRESETS.map((preset) => (
             <option key={preset.id} value={preset.id}>
-              {preset.label}
+              {t(preset.label)}
             </option>
           ))}
         </select>

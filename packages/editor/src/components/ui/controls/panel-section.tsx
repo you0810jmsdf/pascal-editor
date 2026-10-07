@@ -1,5 +1,6 @@
 'use client'
 
+import { tn } from '../../../lib/i18n'
 import { ChevronDown } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { useState } from 'react'
@@ -37,7 +38,7 @@ export function PanelSection({
         onClick={() => setIsExpanded(!isExpanded)}
         type="button"
       >
-        <span className="truncate font-medium text-sm">{title}</span>
+        <span className="truncate font-medium text-sm">{tn(title)}</span>
         <ChevronDown
           className={cn(
             'h-4 w-4 transition-transform duration-200',

@@ -1,5 +1,6 @@
 'use client'
 
+import { tn } from '../../../lib/i18n'
 import { cn } from '../../../lib/utils'
 
 interface SegmentedControlProps<T extends string> {
@@ -43,7 +44,7 @@ export function SegmentedControl<T extends string>({
             onClick={() => onChange(option.value)}
             type="button"
           >
-            <span className="relative z-10 flex items-center gap-1.5">{option.label}</span>
+            <span className="relative z-10 flex items-center gap-1.5">{tn(option.label)}</span>
           </button>
         )
       })}

@@ -1,3 +1,4 @@
+import { t } from '../../../lib/i18n'
 import { Icon } from '@iconify/react'
 import type { ToolHint } from '@pascal-app/core'
 import { Fragment, useEffect, useSyncExternalStore } from 'react'
@@ -123,7 +124,7 @@ function ChipRow({
       </span>
       <span className="flex min-w-0 items-center gap-1.5 text-muted-foreground text-xs">
         {icon ? <Icon className="shrink-0" height={13} icon={icon} width={13} /> : null}
-        <span className="truncate">{label}</span>
+        <span className="truncate">{t(label)}</span>
       </span>
     </>
   )
@@ -136,7 +137,7 @@ function ChipRow({
 
   const button = (
     <button
-      aria-label={ariaLabel ?? label}
+      aria-label={t(ariaLabel ?? label)}
       className={cn(
         ROW_CLASS,
         'pointer-events-auto cursor-pointer items-center rounded-md text-left transition-colors hover:bg-muted/60',
@@ -154,7 +155,7 @@ function ChipRow({
   return (
     <Tooltip>
       <TooltipTrigger asChild>{button}</TooltipTrigger>
-      <TooltipContent side="left">{tooltip}</TooltipContent>
+      <TooltipContent side="left">{t(tooltip)}</TooltipContent>
     </Tooltip>
   )
 }
@@ -413,7 +414,7 @@ function HudHeader({ title }: { title: HudTitle }) {
         </span>
       ) : null}
       <span className="min-w-0 flex-1 truncate font-medium text-[13px] text-foreground leading-tight">
-        {title.label}
+        {t(title.label)}
       </span>
       {title.shortcut ? <ShortcutToken className={TOKEN_CLASS} value={title.shortcut} /> : null}
     </div>
@@ -434,10 +435,10 @@ function HintRow({ hint }: { hint: ContextualShortcutHint }) {
             hint.active ? 'font-medium text-white' : 'text-muted-foreground',
           )}
         >
-          {hint.label}
+          {t(hint.label)}
         </div>
         {hint.subtitle ? (
-          <div className="text-[10px] text-muted-foreground/70 leading-snug">{hint.subtitle}</div>
+          <div className="text-[10px] text-muted-foreground/70 leading-snug">{t(hint.subtitle)}</div>
         ) : null}
       </div>
     </div>

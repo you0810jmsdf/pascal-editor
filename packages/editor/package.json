@@ -6,6 +6,7 @@
   "type": "module",
   "exports": {
     ".": "./src/index.tsx",
+    "./i18n": "./src/lib/i18n.ts",
     "./catalog": "./src/components/ui/item-catalog/catalog-items.tsx",
     "./procedural-items": "./src/components/procedural-items/inspector.tsx"
   },

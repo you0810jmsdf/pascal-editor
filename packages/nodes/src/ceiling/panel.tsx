@@ -1,5 +1,6 @@
 'use client'
 
+import { t } from '@pascal-app/editor/i18n'
 import { type AnyNode, type CeilingNode, resolveCeilingHeight, useScene } from '@pascal-app/core'
 import {
   ActionButton,
@@ -274,7 +275,7 @@ export function CeilingPanel() {
         />
         {isFollows ? (
           <div className="px-1 text-[11px] text-muted-foreground">
-            Currently {formatLinearMeasurement(resolvedHeight, unit, metricNotation)}
+            {t('Currently')} {formatLinearMeasurement(resolvedHeight, unit, metricNotation)}
           </div>
         ) : (
           <SliderControl
