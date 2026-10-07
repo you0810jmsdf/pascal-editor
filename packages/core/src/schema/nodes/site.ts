@@ -1,3 +1,4 @@
+import { JpSite } from '../../kenchiku/schema'
 // lib/scenegraph/schema/nodes/site.ts
 
 import dedent from 'dedent'
@@ -110,6 +111,7 @@ export const SiteDossier = z
 export type SiteDossier = z.infer<typeof SiteDossier>
 
 export const SiteNode = BaseNode.extend({
+  jp: JpSite,
   id: objectId('site'),
   type: nodeType('site'),
   // Specific props

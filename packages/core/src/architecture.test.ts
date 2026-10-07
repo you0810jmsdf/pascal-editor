@@ -3,6 +3,7 @@ import { readdirSync, readFileSync } from 'node:fs'
 import { join, relative, resolve } from 'node:path'
 
 /**
+ * E-001: kenchiku is the lowest layer; core may depend on @nsfactory/kenchiku.
  * Layer rule (AGENTS.md): core is pure logic — no Three.js, no rendering.
  * A runtime `three`/`@react-three/*` import in core evaluates R3F (and thus
  * React client context) in every consumer of the barrel, which crashes

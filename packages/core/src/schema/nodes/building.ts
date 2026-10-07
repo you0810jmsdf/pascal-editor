@@ -1,11 +1,13 @@
 import dedent from 'dedent'
 import { z } from 'zod'
+import { JpBuilding } from '../../kenchiku/schema'
 import { BaseNode, nodeType, objectId } from '../base'
 import { ElevatorNode } from './elevator'
 import { LevelNode } from './level'
 import { UnitNode } from './unit'
 
 export const BuildingNode = BaseNode.extend({
+  jp: JpBuilding,
   id: objectId('building'),
   type: nodeType('building'),
   children: z

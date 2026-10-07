@@ -118,6 +118,7 @@
     "three": "^0.186"
   },
   "dependencies": {
+    "@nsfactory/kenchiku": "workspace:*",
     "@pascal-app/lingo": "^0.2.0",
     "dedent": "^1.7.1",
     "idb-keyval": "^6.2.2",

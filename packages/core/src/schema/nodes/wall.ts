@@ -1,5 +1,6 @@
 import dedent from 'dedent'
 import { z } from 'zod'
+import { JpWall } from '../../kenchiku/schema'
 import { Assembly } from '../assembly'
 import { BaseNode, nodeType, objectId } from '../base'
 import { MaterialSchema } from '../material'
@@ -227,6 +228,7 @@ export const WallAssembly = z
 export type WallAssembly = z.infer<typeof WallAssembly>
 
 export const WallNode = BaseNode.extend({
+  jp: JpWall,
   id: objectId('wall'),
   type: nodeType('wall'),
   wallType: z.enum(['standard', 'curtain']).optional(),

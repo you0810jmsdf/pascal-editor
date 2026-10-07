@@ -1,9 +1,11 @@
 import dedent from 'dedent'
 import { z } from 'zod'
+import { JpZone } from '../../kenchiku/schema'
 import { BaseNode, nodeType, objectId } from '../base'
 import { SurfacePaintRegion } from './surface-paint-region'
 
 export const ZoneNode = BaseNode.extend({
+  jp: JpZone,
   id: objectId('zone'),
   type: nodeType('zone'),
   name: z.string(),
