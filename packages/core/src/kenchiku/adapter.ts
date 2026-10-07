@@ -33,7 +33,7 @@ import {
   getStoredLevelHeight,
 } from '../services/storey'
 import { measureStair } from '../systems/stair/stair-sizing'
-import { centerWall, floorOutline, onEdge } from './geometry'
+import { centerWall, floorOutline, onEdge, rot2 } from './geometry'
 import { roofInput } from './roof'
 
 const isWall = (n: AnyNode): n is WallNode => n.type === 'wall'
@@ -95,13 +95,77 @@ function timberFor(building: BuildingNode, notes: string[]) {
   return { ...DEFAULT_TIMBER }
 }
 
-function siteInput(site: SiteNode | undefined): JpSiteInput | undefined {
+/**
+ * 壁の主方向（長さで重み付けした 90° 周期の平均角・rad）。建物が level の軸に対して斜めに
+ * 描かれていても、この角だけ回せば X/Y 方向の壁として集計できる。±0.5° 未満は 0。
+ */
+export function dominantAxisAngle(walls: readonly Pick<WallNode, 'start' | 'end'>[]): number {
+  let sx = 0
+  let sy = 0
+  for (const w of walls) {
+    const dx = w.end[0] - w.start[0]
+    const dy = w.end[1] - w.start[1]
+    const len = Math.hypot(dx, dy)
+    if (len < 1e-6) continue
+    const a4 = 4 * Math.atan2(dy, dx)
+    sx += len * Math.cos(a4)
+    sy += len * Math.sin(a4)
+  }
+  if (Math.hypot(sx, sy) < 1e-9) return 0
+  const angle = Math.atan2(sy, sx) / 4
+  return Math.abs(angle) < (0.5 * Math.PI) / 180 ? 0 : angle
+}
+
+/**
+ * 敷地を建物座標（建物の位置・回転を戻し、さらに壁の主方向の回転 θ を掛けた座標）へ移す。
+ * 真北は方向ベクトルとして同じ回転を受ける。
+ */
+function siteInput(
+  site: SiteNode | undefined,
+  building: BuildingNode,
+  axisRotation: number,
+): JpSiteInput | undefined {
   if (!site) return undefined
+  const rotB = building.rotation?.[1] ?? 0
+  const px = building.position?.[0] ?? 0
+  const pz = building.position?.[2] ?? 0
+  const toAxis = (p: readonly [number, number]): [number, number] =>
+    rot2(rot2([p[0] - px, p[1] - pz], -rotB), axisRotation)
+  const north = site.northRotation ?? 0
+  const n = rot2([Math.sin(north), -Math.cos(north)], axisRotation - rotB)
   return {
-    polygon: site.polygon?.points,
-    northRotation: site.northRotation,
+    polygon: site.polygon?.points?.map(toAxis),
+    northRotation: Math.atan2(n[0], -n[1]),
     ...(site.jp ?? {}),
   }
+}
+
+/** 対象の建物。id 指定が無ければシーン内に1つだけある建物。 */
+export function findJpBuilding(nodes: Record<string, AnyNode>, buildingId?: string): BuildingNode {
+  const buildings = Object.values(nodes).filter((n): n is BuildingNode => n.type === 'building')
+  const building = buildingId
+    ? buildings.find((b) => b.id === buildingId)
+    : buildings.length === 1
+      ? buildings[0]
+      : undefined
+  if (!building)
+    throw new RangeError('対象の建物を一つ指定してください（building ノードが0または複数）')
+  return building
+}
+
+/** 計算対象の階（占有階）を下から順に。storeys[i] がこの i 番目の level に対応する。 */
+export function jpStoreyLevels(
+  nodes: Record<string, AnyNode>,
+  building: BuildingNode,
+): LevelNode[] {
+  const elevations = getLevelElevations(nodes)
+  return levelsOf(nodes)
+    .filter(
+      (l): l is LevelNode =>
+        (l.parentId === building.id || building.children.includes(l.id)) &&
+        levelRole(nodes, l).role === 'occupied',
+    )
+    .sort((a, b) => (elevations.get(a.id)?.baseY ?? 0) - (elevations.get(b.id)?.baseY ?? 0))
 }
 
 /**
@@ -113,14 +177,7 @@ export function adaptJpBuilding(
   nodes: Record<string, AnyNode>,
   buildingId?: string,
 ): Explained<JpBuildingInput> {
-  const buildings = Object.values(nodes).filter((n): n is BuildingNode => n.type === 'building')
-  const building = buildingId
-    ? buildings.find((b) => b.id === buildingId)
-    : buildings.length === 1
-      ? buildings[0]
-      : undefined
-  if (!building)
-    throw new RangeError('対象の建物を一つ指定してください（building ノードが0または複数）')
+  const building = findJpBuilding(nodes, buildingId)
   const jp = building.jp
   if (jp?.structure && jp.structure !== 'wood-conventional')
     throw new RangeError('フェーズAは木造在来軸組（wood-conventional）だけが対象です')
@@ -138,15 +195,22 @@ export function adaptJpBuilding(
   const siteJp = site?.jp
 
   const elevations = getLevelElevations(nodes)
-  const levels = levelsOf(nodes)
-    .filter(
-      (l): l is LevelNode =>
-        (l.parentId === building.id || building.children.includes(l.id)) &&
-        levelRole(nodes, l).role === 'occupied',
-    )
-    .sort((a, b) => (elevations.get(a.id)?.baseY ?? 0) - (elevations.get(b.id)?.baseY ?? 0))
+  const levels = jpStoreyLevels(nodes, building)
   if (!levels.length) throw new RangeError('壁や部屋のある階（占有階）がありません')
   if (levels.length > 3) throw new RangeError('フェーズAは階数3以下が対象です')
+
+  const axisRotation = dominantAxisAngle(
+    levels.flatMap((level) => nodesOnLevel(nodes, level.id).filter(isWall).map(centerWall)),
+  )
+  if (axisRotation)
+    notes.push(
+      `壁の主方向が平面の x 軸から ${((axisRotation * 180) / Math.PI).toFixed(1)}° 傾いているため、建物座標を同じ角だけ回して X/Y 方向を定義（図面上の位置は元のまま）。`,
+    )
+  const toAxis = (p: readonly [number, number]) => rot2(p, axisRotation)
+  const rotateWall = (wall: WallNode): WallNode => {
+    const centered = centerWall(wall)
+    return { ...centered, start: toAxis(centered.start), end: toAxis(centered.end) }
+  }
 
   const storeys: JpStorey[] = levels.map((level, i) => {
     const content = nodesOnLevel(nodes, level.id)
@@ -154,24 +218,25 @@ export function adaptJpBuilding(
     const voids = content
       .filter(isFloorOpening)
       .filter((n) => n.drawnOn === 'floor' && n.cutsPrimary && !n.hostZoneId)
-      .map((n) => n.polygon)
+      .map((n) => n.polygon.map(toAxis))
     const below = levels[i - 1]
     if (below) {
       voids.push(
         ...nodesOnLevel(nodes, below.id)
           .filter(isFloorOpening)
           .filter((n) => n.drawnOn === 'ceiling' && n.cutsAdjacent && !n.hostZoneId)
-          .map((n) => n.polygon),
+          .map((n) => n.polygon.map(toAxis)),
       )
     }
-    const outline = floorOutline(sourceWalls, voids)
+    const rotatedWalls = sourceWalls.map(rotateWall)
+    const outline = floorOutline(rotatedWalls, voids)
     const height =
       i === levels.length - 1
         ? getStoredLevelHeight(level)
         : getLevelFloorToFloorHeight(level.id, nodes)
 
-    const walls: JpWall[] = sourceWalls.map((wall) => {
-      const centered = centerWall(wall)
+    const walls: JpWall[] = sourceWalls.map((wall, k) => {
+      const centered = rotatedWalls[k]!
       const children = descendantsOf(nodes, wall.id).filter(isOpening)
       return {
         id: wall.id,
@@ -202,16 +267,17 @@ export function adaptJpBuilding(
           notes.push(
             `${zone.name || zone.id}: 室の種別（jp.roomKind）が未入力のため居室として扱う（安全側）。`,
           )
+        const roomPolygon = zone.polygon.map(toAxis)
         const roomWalls = sourceWalls.filter(
-          (w) =>
+          (w, k) =>
             zone.boundaryWallIds.includes(w.id) ||
-            onEdge(midpoint(w), zone.polygon, (w.thickness ?? 0.1) / 2 + 1e-4),
+            onEdge(midpoint(rotatedWalls[k]!), roomPolygon, (w.thickness ?? 0.1) / 2 + 1e-4),
         )
         return {
           id: zone.id,
           name: zone.name,
-          polygon: zone.polygon,
-          area: area([{ outer: zone.polygon, holes: zone.holes }]),
+          polygon: roomPolygon,
+          area: area([{ outer: roomPolygon, holes: zone.holes.map((h) => h.map(toAxis)) }]),
           kind,
           ceilingHeight: zone.ceilingHeight,
           daylightNeighborDistance: zone.jp?.daylightNeighborDistance,
@@ -246,7 +312,7 @@ export function adaptJpBuilding(
       const rectangular = column.crossSection === 'rectangular' || column.crossSection === 'square'
       return {
         id: column.id,
-        at: [column.position[0], column.position[2]],
+        at: toAxis([column.position[0], column.position[2]]),
         sizeMm: rectangular ? [column.width * 1000, column.depth * 1000] : undefined,
       }
     })
@@ -272,7 +338,7 @@ export function adaptJpBuilding(
     ...building,
     jp: { ...(jp ?? { structure: 'wood-conventional' }), roofKind: jp?.roofKind ?? 'slate' },
   }
-  const geometry = roofInput(nodes, effectiveBuilding, roofs, storeys, floors, notes)
+  const geometry = roofInput(nodes, effectiveBuilding, roofs, storeys, floors, notes, axisRotation)
 
   const value: JpBuildingInput = {
     storeys,
@@ -289,7 +355,9 @@ export function adaptJpBuilding(
     timber: timberFor(building, notes),
     minBearingLength: jp?.minBearingLength ?? 0.9,
     quasiWalls: jp?.quasiWalls ?? false,
-    site: siteInput(site),
+    site: siteInput(site, building, axisRotation),
+    foundation: jp?.foundation,
+    axisRotation,
   }
   return {
     value,

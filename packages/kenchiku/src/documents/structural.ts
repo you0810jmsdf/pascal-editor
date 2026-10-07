@@ -240,6 +240,86 @@ ${explainBlock(req.explain, '必要壁量の式と代入値')}`,
         )
       })(),
     ),
+    section(
+      '7. 参考（法規の判定には用いない略算）',
+      (() => {
+        const ref = r.reference.value
+        const ecc = table(
+          [
+            '階',
+            '重心 (x, y)',
+            '剛心 X壁 y / Y壁 x',
+            '偏心距離 ey / ex (m)',
+            '弾力半径 rex / rey (m)',
+            '偏心率 Rex / Rey',
+            '判定 (≦0.3)',
+          ],
+          ref.eccentricity.value.rows.map((row) => {
+            const v = row.value
+            if (!v.computable)
+              return [
+                `${v.storey}階`,
+                `(${n(v.xg)}, ${n(v.yg)})`,
+                '－',
+                '－',
+                '－',
+                '－',
+                '算定不可（片方向の耐力壁なし）',
+              ]
+            return [
+              `${v.storey}階`,
+              `(${n(v.xg)}, ${n(v.yg)})`,
+              `${n(v.yr)} / ${n(v.xr)}`,
+              `${n(v.ey, 3)} / ${n(v.ex, 3)}`,
+              `${n(v.rex, 3)} / ${n(v.rey, 3)}`,
+              `${n(v.Rex, 3)} / ${n(v.Rey, 3)}`,
+              judge(v.ok),
+            ]
+          }),
+        )
+        const beams = table(
+          ['階', '部屋', '内法 (m)', 'スパン (m)', '部材', '梁せいの目安'],
+          ref.beams.value.rows.map((b) => [
+            `${b.storey}階`,
+            b.roomName,
+            `${n(b.width, 1)} × ${n(b.depth, 1)}`,
+            n(b.span),
+            b.member,
+            b.depthMm ? `${b.depthMm}mm` : '要個別検討（スパン過大）',
+          ]),
+          { numeric: [3] },
+        )
+        const f = ref.foundation.value
+        const foundation = table(
+          ['項目', '値', '備考'],
+          [
+            [
+              '概算建物重量 W',
+              `${n(f.weightKn, 0)} kN`,
+              `延べ ${n(f.totalFloorArea)}㎡ × ${f.unitKnM2} kN/㎡`,
+            ],
+            [
+              '布基礎の接地圧',
+              `${n(f.qStrip)} kN/㎡`,
+              `外周壁長 ${n(f.wallLength)}m × 底盤幅 ${f.stripWidth * 1000}mm`,
+            ],
+            ['べた基礎の接地圧', `${n(f.qMat)} kN/㎡`, '1階床面積で支持'],
+            [
+              '地耐力（長期許容）',
+              `${f.soilKnM2} kN/㎡${f.soilAssumed ? '（仮定）' : ''}`,
+              '地盤調査結果を入力',
+            ],
+            [
+              '判定',
+              `布基礎 ${f.okStrip ? '可' : '不可'}・べた基礎 ${f.okMat ? '可' : '不可'}`,
+              f.recommendation,
+            ],
+          ],
+        )
+        return `<h3>7-1 偏心率（四分割法の代替・令82条の6）</h3>${ecc}${note('剛性を壁量に比例、重心を床面積の図心とみなした略算。各階各方向で 0.3 以下なら四分割法に代えられる。')}<h3>7-2 横架材（梁せい）の目安</h3>${beams}${note('部屋の短辺に梁を架ける想定のスパン表（梁幅105・梁間隔910・無等級材）。プレカット業者または構造設計者の検定が必要。')}<h3>7-3 基礎（接地圧）の目安</h3>${foundation}${note('概算重量による略算。基礎形式・配筋・底盤幅は地盤調査に基づき決定（令38条・告示1347号。無筋基礎は2025年改正で廃止）。')}${explainBlock(r.reference.explain, '参考計算の式と根拠')}`
+      })(),
+      true,
+    ),
   ].join('')
   return page(
     '壁量計算書',

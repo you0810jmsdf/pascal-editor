@@ -146,5 +146,7 @@ export interface JpBuildingInput {
   quasiWalls: boolean // 準耐力壁等を算入するか（既定 false）
   facade?: { x: FacadeArea[]; y: FacadeArea[] } // アダプタが計算した見付面積（階ごと）。無ければエンジンが bbox と roof から近似
   firstFloorHeight?: number // 1階の床高（地盤面から m）。令22条の判定に使う。未入力は input-needed
+  foundation?: { type?: 'strip' | 'mat' | 'pile'; soilBearingKnM2?: number } // 参考章（基礎の接地圧）用
+  axisRotation?: number // 入力の幾何を元の座標から回した角（rad）。壁の主方向を X 軸に合わせるため。図面に戻すときは逆回転
   site?: JpSiteInput // §7 用
 }

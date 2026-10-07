@@ -43,6 +43,11 @@ export const CODE_REFERENCES = {
     '第10条（建築物エネルギー消費性能適合性判定・2025-04-01 全面義務化）',
     'https://laws.e-gov.go.jp/law/427AC0000000053',
   ),
+  foundation: ref(
+    '建築基準法施行令・告示',
+    '令第38条・平成12年建設省告示第1347号（基礎の構造）',
+    'https://www.mlit.go.jp/notice/noticedata/pdf/201703/00006441.pdf',
+  ),
   procedure: ref('建築基準法', '第6条（建築物の建築等に関する申請及び確認）', `${LAW}#Mp-At_6`),
   procedureRule: ref(
     '建築基準法施行規則',

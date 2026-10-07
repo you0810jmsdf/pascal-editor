@@ -162,7 +162,7 @@ export const jpSetWallBearing: AgentOperation<SetWallBearingInput> = (nodes, inp
       refuse('not_a_wall', `Node ${id} is a ${node.type}, not a wall.`, { id, type: node.type })
     return node as WallNode
   })
-  const kinds = (input.kinds ?? []).filter((k): k is BearingKind => k in BEARING_RATIOS)
+  const kinds: BearingKind[] = (input.kinds ?? []).filter((k) => k in BEARING_RATIOS)
   const needsRatio = kinds.some((k) => k === 'custom' || k === 'panel-other')
   if (!input.clear && needsRatio && input.ratioOverride === undefined)
     refuse('jp_ratio_required', 'custom / panel-other kinds need ratioOverride (壁倍率).', {
@@ -200,7 +200,7 @@ export const jpSetWallBearing: AgentOperation<SetWallBearingInput> = (nodes, inp
             sum +
             (k === 'custom' || k === 'panel-other'
               ? (input.ratioOverride ?? 0)
-              : BEARING_RATIOS[k]),
+              : (BEARING_RATIOS[k] ?? 0)),
           0,
         ),
       )

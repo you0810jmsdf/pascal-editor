@@ -907,3 +907,6 @@ export {
   type ValidationSeverity,
   validateBuildJson,
 } from './validation/validate-build-json'
+
+// N's factory: 日本の建築法規（シーン → @nsfactory/kenchiku の入力モデル）
+export * from './kenchiku'

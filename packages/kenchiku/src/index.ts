@@ -51,6 +51,15 @@ export { columnMinSize, columnSizes } from './structural/column-size'
 export { existingWall, wallSufficiency } from './structural/existing-wall'
 export { nValue, nValues } from './structural/n-value'
 export { quarterBalance, quarterMethod, quarterStorey } from './structural/quarter-method'
+export {
+  beamGuide,
+  centroid,
+  ECCENTRICITY_LIMIT,
+  eccentricity,
+  eccentricityStorey,
+  foundationGuide,
+  referenceChecks,
+} from './structural/reference'
 export { requiredWall } from './structural/required-wall'
 export { KenchikuScopeError } from './structural/validation'
 export { requiredWind, windWall } from './structural/wind'

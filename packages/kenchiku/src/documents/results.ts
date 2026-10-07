@@ -4,6 +4,7 @@ import { columnSizes } from '../structural/column-size'
 import { existingWall } from '../structural/existing-wall'
 import { nValues } from '../structural/n-value'
 import { quarterMethod } from '../structural/quarter-method'
+import { referenceChecks } from '../structural/reference'
 
 /** 図書が参照する計算結果の束。UI もこれを1回計算してタブと図書で共有する。 */
 export function collectKenchikuResults(input: JpBuildingInput) {
@@ -18,6 +19,7 @@ export function collectKenchikuResults(input: JpBuildingInput) {
     nValues: nValues(input),
     columns: columnSizes(input),
     code: checkBuildingCode(input),
+    reference: referenceChecks(input),
   }
 }
 

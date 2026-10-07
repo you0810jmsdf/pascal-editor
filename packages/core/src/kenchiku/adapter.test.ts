@@ -78,6 +78,44 @@ describe('adaptJpBuilding（仕様書 §6.1）', () => {
     expect(explain.notes.some((n) => n.includes('extWall'))).toBe(true)
   })
 
+  test('建物が平面の軸に対して斜めでも、壁の主方向に回して X/Y 方向を集計する', () => {
+    const nodes = woodTwoStoreyScene({ buildingJp: BUILDING_JP })
+    const theta = (30 * Math.PI) / 180
+    const spin = (p: [number, number]): [number, number] => [
+      p[0] * Math.cos(theta) - p[1] * Math.sin(theta),
+      p[0] * Math.sin(theta) + p[1] * Math.cos(theta),
+    ]
+    for (const node of Object.values(nodes)) {
+      if (node.type === 'wall') {
+        node.start = spin(node.start)
+        node.end = spin(node.end)
+      }
+      if (node.type === 'zone') node.polygon = node.polygon.map(spin)
+    }
+    const { value, explain } = adaptJpBuilding(nodes)
+    expect(Math.abs(Math.abs(value.axisRotation ?? 0) - theta)).toBeLessThan(0.01)
+    const expectedArea = FIXTURE_W * FIXTURE_D
+    expect(Math.abs(value.storeys[0]!.floorArea - expectedArea) / expectedArea).toBeLessThan(0.01)
+    // 回した後は 6 枚とも X か Y の壁として扱われる（斜め壁の注記が無い）
+    expect(explain.notes.some((n) => n.includes('斜め壁'))).toBe(false)
+    expect(explain.notes.some((n) => n.includes('主方向'))).toBe(true)
+    const xWalls = value.storeys[0]!.walls.filter((w) => Math.abs(w.end[1] - w.start[1]) < 1e-6)
+    const yWalls = value.storeys[0]!.walls.filter((w) => Math.abs(w.end[0] - w.start[0]) < 1e-6)
+    expect(xWalls).toHaveLength(3)
+    expect(yWalls).toHaveLength(3)
+  })
+
+  test('屋根も上書きも無いときは 4寸切妻を仮定して計算を止めず、注記を残す', () => {
+    const { value, explain } = adaptJpBuilding(
+      woodTwoStoreyScene({ buildingJp: { roofKind: 'slate', extWall: 'siding' } }),
+    )
+    expect(value.roof.pitchSun).toBe(4)
+    expect(value.roof.overhang).toBeCloseTo(0.45, 6)
+    // 短辺 7.28m + 軒の出 0.45×2 の半分 × 0.4
+    expect(value.roof.rise).toBeCloseTo(((7.28 + 0.9) / 2) * 0.4, 6)
+    expect(explain.notes.some((n) => n.includes('切妻'))).toBe(true)
+  })
+
   test('屋根ノードから屋根諸元と見付面積を求める（切妻・4寸相当）', () => {
     const { value } = adaptJpBuilding(
       woodTwoStoreyScene({ withRoof: true, buildingJp: { roofKind: 'tile', extWall: 'mortar' } }),

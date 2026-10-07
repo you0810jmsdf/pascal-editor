@@ -48,3 +48,11 @@ export function above(polygon: Pt[], cut: number): Pt[] {
   }
   return result
 }
+
+/** 平面の回転（three.js の Y 軸回転と同じ向き）: x' = x cos a + y sin a, y' = −x sin a + y cos a */
+export function rot2(p: readonly [number, number], a: number): [number, number] {
+  if (!a) return [p[0], p[1]]
+  const c = Math.cos(a)
+  const s = Math.sin(a)
+  return [p[0] * c + p[1] * s, -p[0] * s + p[1] * c]
+}
