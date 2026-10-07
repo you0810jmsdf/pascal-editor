@@ -23,9 +23,8 @@ export function nValue(
   const l = (firstOfTwo ? COEF.firstL : COEF.topL)[corner ? 'corner' : 'other']
   const n = a1 * b1 + (firstOfTwo ? a2 * b2 : 0) - l
   const entry = N_VALUE_TABLES.hardware.find((h) => h.maxN === null || n <= h.maxN + EPS)!
-  // TODO(spec §4.3): 「ぬ」は仕様書の25kN×2を表示し、JSONの必要耐力30kNとの相違は原典照合まで未確定とする。
-  const hardware =
-    entry.symbol === 'ぬ' ? { ...entry, name: '引き寄せ金物 25kN×2', requiredKn: null } : entry
+  // 「ぬ」は告示 表三の (と) の仕口を2組（15kN×2＝30kN）。仕様書 §4.3 を 2026-10-07 に訂正済みで JSON の値を正とする。
+  const hardware = entry
   return explained(
     {
       a1,
@@ -40,9 +39,7 @@ export function nValue(
     'N=A1×B1+(2階建て1階のみA2×B2)−L',
     `${a1}×${b1}+${firstOfTwo ? a2 : 0}×${firstOfTwo ? b2 : 0}−${l}=${n}; 金物=${hardware.symbol}`,
     N_VALUE_REFERENCES,
-    entry.symbol === 'ぬ'
-      ? ['ぬの名称は仕様書の25kN×2を採用。JSONの必要耐力30kNとの相違は要照合。']
-      : [],
+    [],
   )
 }
 

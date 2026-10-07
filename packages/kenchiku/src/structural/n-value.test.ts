@@ -19,7 +19,7 @@ test('§11 一般柱A1=A2=2.5はN0.9・は、最上階出隅A1=5はN3.6・ち', 
   expect(nValue(5, 0, true, false).value.hardware.symbol).toBe('ち')
 })
 
-test('金物の全境界と5.6超・ぬの未照合必要耐力', () => {
+test('金物の全境界と5.6超・ぬは15kN×2＝30kN', () => {
   for (const [n, symbol] of [
     [0, 'い'],
     [0.65, 'ろ'],
@@ -35,7 +35,7 @@ test('金物の全境界と5.6超・ぬの未照合必要耐力', () => {
     expect(nValue((n + 0.6) / 0.5, 0, false, false).value.hardware.symbol).toBe(symbol)
   }
   expect(nValue(12.5, 0, false, false).value.individualCalculation).toBe(true)
-  expect(nValue(12.4, 0, false, false).value.hardware.requiredKn).toBeNull()
+  expect(nValue(12.4, 0, false, false).value.hardware.requiredKn).toBe(30)
 })
 
 test('柱ノード優先、同方向の両側差と上階の同位置柱を用いる', () => {
