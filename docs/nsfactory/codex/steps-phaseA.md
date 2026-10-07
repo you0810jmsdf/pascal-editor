@@ -6,7 +6,7 @@
 - `timber-fc.ts` は `docs/nsfactory/data/timber-fc.json` を TypeScript の配列として取り込む（169件）。`n-value.ts` は `n-value-tables.json` から。
 - 式と丸めは `docs/nsfactory/tools/kenchiku_oracle.py` と仕様書 §6.2・§6.8 に厳密に合わせる。結果はすべて `{ value, explain }`（式・代入値・条文・出典URL）。
 - 2階建てと平屋の両方。3階以上・300㎡超・16m超はエラー（`KenchikuScopeError`）。
-完了条件: `bun test kenchiku` で `kenchiku_vectors.json` の全ケース（Lw・柱 de・A2・W1/W2 小数4桁）が一致。`bun run check` 通過。`packages/kenchiku` が `bun run build` に組み込まれる（他パッケージと同じビルド方式）。
+完了条件: `bun test kenchiku` で `kenchiku_vectors.json` の全ケース（Lw・柱 de・A2・W1/W2 小数4桁）が一致。`bunx biome check packages/kenchiku` 指摘ゼロ。`packages/kenchiku` が `bun run build` に組み込まれる（他パッケージと同じビルド方式）。
 
 ## STEP 2: 存在壁量・判定・四分割法・N値
 目的: 仕様書 §6.4〜§6.7 を純関数で実装する（入力は §3 の `JpBuildingInput`・幾何はすでに建物座標系に変換済みとする）。
@@ -49,5 +49,5 @@
 
 ## STEP 8: 参考機能・ドキュメント・最終確認
 目的: 仕様書 §6.9（偏心率・横架材の目安・基礎の接地圧略算。旧 `kabe.js`/`structure.js` の考え方を移植、図書では「参考」章）、`wiki/architecture/kenchiku.md`（新パッケージの境界・入力モデル・テストの流儀）、`CHANGELOG.md` 追記。
-- 最後に `bun run ci` と `cd apps/editor && bun run build:static` を実行し、結果（成功/失敗と所要時間）を報告する。失敗は直す。
-完了条件: `bun run ci` exit 0、`build:static` 成功、仕様書 §12 の受け入れ基準 1〜4・6・7 を満たすこと（5 は Claude が目視）。
+- 最後に `bun run check-types`・`bun test`（全体）・`bun run build`・`cd apps/editor && bun run build:static` を実行し、結果（成功/失敗と所要時間）を報告する。自分の変更に起因する失敗は直す。`bun run check`（Biome 全体）は既存コードの指摘で落ちることが分かっているので、自分が触ったパスだけ `bunx biome check` で確認し、全体の結果は「既存の指摘一覧」として報告するだけでよい。
+完了条件: `bun run check-types`・`bun test`・`bun run build` が exit 0、`build:static` 成功、触ったパスの Biome 指摘ゼロ、仕様書 §12 の受け入れ基準 2〜4・6・7 を満たすこと（1 の Biome 全体は Claude が別途扱う。5 は Claude が目視）。

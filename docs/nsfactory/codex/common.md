@@ -22,7 +22,8 @@
 - 新規パッケージ `packages/kenchiku` は既存の小さなパッケージ（例: `packages/geometry-script`）の `package.json`・`tsconfig.json`・ビルド設定に倣う。ワークスペースに自動で入る（ルート `package.json` の `workspaces: packages/*`）。追加後は `bun install` を1回実行してリンクする。
 - 文言: 日本固有の文言は日本語で直接書いてよい。既存 UI の英語キーを使う箇所は `t()`（`packages/editor/src/lib/i18n.ts`）。
 - テストは `*.test.ts` を対象ファイルの隣に置き、公開 API 経由で検証する（T-001）。期待値は `kenchiku_vectors.json` と仕様書 §11 の手計算値。
-- 各 STEP の最後に必ず実行して通す: `bun run check` と `bun test kenchiku`（STEP 3 以降は `bun run check-types` も）。
+- 各 STEP の最後に必ず実行して通す: `bun test kenchiku` と、自分が触ったパスだけの `bunx biome check <パス...>`（例: `bunx biome check packages/kenchiku packages/core/src/kenchiku`。整形は `--write`）。STEP 3 以降は `bun run check-types` も。
+- ⚠ リポジトリ全体の `bun run check` は、あなたの作業前から既存コード（`packages/viewer/src/systems/interactive/interactive-system.tsx` の useExhaustiveDependencies、`packages/viewer/src/systems/wall/*.test.ts` の plugin 診断、`apps/editor` の organizeImports/noAutofocus 等）で失敗している。**これらは直さない**（別作業の範囲）。自分が追加・変更したファイルに Biome の指摘が無いことだけを保証する。
 - 変更したファイル一覧・追加した TODO・気になる点を最終メッセージに書く。「動くはず」ではなく、実行したコマンドと結果を書く。
 
 ## 用語の対応

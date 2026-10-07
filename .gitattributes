@@ -1,0 +1,9 @@
+# Keep LF in the working tree on every OS (Biome formats with LF; CRLF files fail `bun run check`).
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.glb binary
+*.ktx2 binary
+*.wasm binary
+*.ttf binary
+*.woff2 binary
