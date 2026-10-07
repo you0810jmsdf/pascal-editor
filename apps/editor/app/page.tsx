@@ -1,6 +1,7 @@
 'use client'
 
-import { Editor, ItemsPanel } from '@pascal-app/editor'
+import { t } from '@pascal-app/editor/i18n'
+import { Editor, ItemsPanel, type SceneGraph } from '@pascal-app/editor'
 import { PascalWebXRButton } from '@webxr/plugin/pascal-editor'
 import { Hammer, Layers, Package, Palette, Settings } from 'lucide-react'
 import Image from 'next/image'
@@ -112,7 +113,16 @@ const SIDEBAR_TABS = [
 
 const PROJECT_ID = 'local-editor'
 
-export default function Home() {
+interface WorkspaceProps {
+  projectId?: string
+  /** 指定すると、保存先を localStorage ではなく呼び出し側に任せる（静的版の複数シーン用）。 */
+  onLoad?: () => Promise<SceneGraph | null>
+  onSave?: (graph: SceneGraph, options?: { keepalive?: boolean }) => Promise<void>
+  /** 画面上部中央に出す案内。指定しなければ従来の案内（静的版では「保存した間取り」への入口）。 */
+  overlay?: React.ReactNode
+}
+
+export function Workspace({ projectId = PROJECT_ID, onLoad, onSave, overlay }: WorkspaceProps) {
   const webXRInstalled = useWebXRInstalled()
   return (
     <div className="relative h-screen w-screen">
@@ -120,13 +130,13 @@ export default function Home() {
         <WebXRFeatureConsumer>
           {(vr) => (
             <>
-              {PROJECT_ID === 'local-editor' && !IS_STATIC_EXPORT && (
+              {overlay === undefined && projectId === 'local-editor' && !IS_STATIC_EXPORT && (
                 <div className="pointer-events-none absolute top-14 left-1/2 z-40 -translate-x-1/2">
                   <div className="pointer-events-none flex max-w-[min(92vw,42rem)] flex-wrap items-center justify-center gap-x-3 gap-y-1 rounded-full border border-border/60 bg-background/90 px-4 py-1.5 text-xs shadow-sm backdrop-blur">
                     <span className="text-muted-foreground">
                       Blank canvas — saved scenes are under Scenes (not this page).
                     </span>
-                    <Link
+                    <Link prefetch={false}
                       className="pointer-events-auto font-medium text-foreground hover:underline"
                       href="/scenes"
                     >
@@ -135,10 +145,23 @@ export default function Home() {
                   </div>
                 </div>
               )}
+              {overlay === undefined && projectId === 'local-editor' && IS_STATIC_EXPORT && (
+                <div className="pointer-events-none absolute top-14 left-1/2 z-40 -translate-x-1/2">
+                  <Link prefetch={false}
+                    className="pointer-events-auto rounded-full border border-border bg-background/90 px-4 py-1.5 font-medium text-xs shadow-sm backdrop-blur hover:bg-accent/40"
+                    href="/scenes"
+                  >
+                    {t('Open saved scenes')}
+                  </Link>
+                </div>
+              )}
+              {overlay}
               <Editor
                 immersive={vr?.session ? vr.immersive : undefined}
                 layoutVersion="v2"
-                projectId={PROJECT_ID}
+                onLoad={onLoad}
+                onSave={onSave}
+                projectId={projectId}
                 sidebarTabs={SIDEBAR_TABS}
                 viewerToolbarLeft={<CommunityViewerToolbarLeft />}
                 viewerToolbarRight={
@@ -161,4 +184,8 @@ export default function Home() {
       </WebXRFeatureRuntime>
     </div>
   )
+}
+
+export default function Home() {
+  return <Workspace />
 }
