@@ -1,0 +1,120 @@
+{
+ "official_example": {
+  "input": {
+   "h1": 3.0,
+   "h2": 3.0,
+   "roof_rise": 0.5,
+   "c0": 0.2,
+   "af1": 60,
+   "af2": 60,
+   "overhang": 0.5,
+   "pitch_sun": 4,
+   "roof": "slate",
+   "ext": "siding",
+   "pv": "standard"
+  },
+  "lw": [
+   44.0,
+   25.0
+  ],
+  "columns": [
+   105.0,
+   84.0
+  ],
+  "A2": 1.2612,
+  "w1": 4.2192,
+  "w2": 1.9049
+ },
+ "tile_siding_30_30_50_50": {
+  "input": {
+   "h1": 3.0,
+   "h2": 3.0,
+   "roof_rise": 1.0,
+   "c0": 0.2,
+   "af1": 50,
+   "af2": 50,
+   "overhang": 0.5,
+   "pitch_sun": 4,
+   "roof": "tile",
+   "ext": "siding"
+  },
+  "lw": [
+   44.0,
+   26.0
+  ],
+  "columns": [
+   105.0,
+   85.0
+  ],
+  "A2": 1.2614,
+  "w1": 4.2858,
+  "w2": 1.9715
+ },
+ "metal_board_29_28_lean": {
+  "input": {
+   "h1": 2.9,
+   "h2": 2.8,
+   "roof_rise": 1.2,
+   "c0": 0.2,
+   "af1": 66.25,
+   "af2": 49.69,
+   "overhang": 0.6,
+   "pitch_sun": 4.5,
+   "roof": "metal",
+   "ext": "board"
+  },
+  "lw": [
+   28.0,
+   17.0
+  ],
+  "columns": [
+   99.0,
+   72.0
+  ],
+  "A2": 1.3543,
+  "w1": 2.6594,
+  "w2": 0.8856
+ },
+ "tile_mortar_c03_pv": {
+  "input": {
+   "h1": 3.1,
+   "h2": 3.0,
+   "roof_rise": 1.5,
+   "c0": 0.3,
+   "af1": 80,
+   "af2": 40,
+   "overhang": 0.9,
+   "pitch_sun": 5,
+   "roof": "tile",
+   "ext": "mortar",
+   "pv": "standard"
+  },
+  "lw": [
+   64.0,
+   58.0
+  ],
+  "columns": [
+   117.0,
+   92.0
+  ],
+  "A2": 1.3705,
+  "w1": 4.1161,
+  "w2": 1.3752
+ },
+ "single_slate_siding_29": {
+  "input": {
+   "h1": 2.9,
+   "roof_rise": 1.0,
+   "c0": 0.2,
+   "overhang": 0.5,
+   "pitch_sun": 4,
+   "roof": "slate",
+   "ext": "siding"
+  },
+  "lw": [
+   17.0
+  ],
+  "column": 80.0,
+  "w1": 1.6198
+ }
+}
