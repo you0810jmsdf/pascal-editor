@@ -5,6 +5,15 @@ export {
   checkBuildingCode,
   daylightFactor,
 } from './code-check'
+export {
+  buildAllDocuments,
+  buildDocument,
+  collectKenchikuResults,
+  DOCUMENTS,
+  type DocumentId,
+  type DocumentMeta,
+  type KenchikuResults,
+} from './documents'
 export type { Explain, Explained, Reference } from './explain'
 export { BEARING_RATIOS, BEARING_RULES, type BearingKind } from './knowledge/bearing-ratios'
 export { CODE_REFERENCES } from './knowledge/code-references'
