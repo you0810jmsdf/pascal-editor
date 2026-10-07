@@ -1,0 +1,50 @@
+# N's factory: 静的版(GitHub Pages)を手動で公開する。
+# 実行: Actions タブ → "Publish static editor (GitHub Pages)" → Run workflow
+name: Publish static editor (GitHub Pages)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+      - name: Install
+        run: bun install --frozen-lockfile
+      - name: Build static site
+        working-directory: apps/editor
+        run: node scripts/build-static.mjs --base /${{ github.event.repository.name }}
+      - name: Prepare artifact
+        run: |
+          rm -rf apps/editor/.next-static/cache
+          touch apps/editor/.next-static/.nojekyll
+          du -sh apps/editor/.next-static
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: apps/editor/.next-static
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
