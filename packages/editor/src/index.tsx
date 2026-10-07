@@ -18,7 +18,6 @@ export {
   useScene,
 } from '@pascal-app/core'
 export { useViewer } from '@pascal-app/viewer'
-export { t, tf } from './lib/i18n'
 export type { EditorProps } from './components/editor'
 export { default as Editor } from './components/editor'
 export { ActionMenuButton } from './components/editor/action-menu-button'
@@ -299,6 +298,11 @@ export { SceneLoader } from './components/ui/scene-loader'
 export type { ExtraPanel } from './components/ui/sidebar/icon-rail'
 export { ItemsPanel } from './components/ui/sidebar/panels/items-panel'
 export type { FunctionTreeNode } from './components/ui/sidebar/panels/items-panel/function-tree-panel'
+// N's factory: 日本の建築法規パネル（ホストが registerEditorHostPanel で登録する）
+export {
+  kenchikuHostPanel,
+  kenchikuPlugin,
+} from './components/ui/sidebar/panels/kenchiku-panel/host-panel'
 export {
   type ProjectVisibility,
   SettingsPanel,
@@ -589,6 +593,7 @@ export {
   editorHostTreeChildrenRegistry,
   registerEditorHostTreeChildren,
 } from './lib/host-tree-children'
+export { t, tf } from './lib/i18n'
 export {
   DRAFTING_SURFACE_EXTENSION_KEY,
   type DraftingSurfaceExtension,
@@ -900,6 +905,7 @@ export {
   useMovingNode,
   useReshapingNode,
 } from './store/use-interaction-scope'
+export { default as useKenchiku } from './store/use-kenchiku'
 export {
   commitMeasurementDraft,
   finishMeasurementDraft,

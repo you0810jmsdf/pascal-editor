@@ -7,7 +7,7 @@ import {
   nodeRegistry,
   registerNode,
 } from '@pascal-app/core'
-import { registerEditorHostPanel } from '@pascal-app/editor'
+import { kenchikuHostPanel, kenchikuPlugin, registerEditorHostPanel } from '@pascal-app/editor'
 import { builtinPlugin } from '@pascal-app/nodes'
 import { bonesHostPanel, bonesPlugin } from '@pascal-app/plugin-bones'
 import {
@@ -115,6 +115,9 @@ registerEditorHostPanel({
 })
 extendPluginDiscovery(async () => [webXRPlugin])
 registerEditorHostPanel(webXRHostPanel)
+// N's factory: 日本の建築法規（壁量計算・法規チェック・図書）。ノード種は無く、パネルだけを足す。
+extendPluginDiscovery(async () => [kenchikuPlugin])
+registerEditorHostPanel(kenchikuHostPanel)
 
 loadBuiltinsSync()
 void loadExternalPlugins()

@@ -177,6 +177,7 @@ import { FloorplanWallMoveGhostLayer } from '../editor-2d/floorplan-wall-move-gh
 import { FloorplanDraftLayer } from '../editor-2d/renderers/floorplan-draft-layer'
 import { FloorplanDraftMeasurement } from '../editor-2d/renderers/floorplan-draft-measurement'
 import { FloorplanGeometryRenderer } from '../editor-2d/renderers/floorplan-geometry-renderer'
+import { FloorplanKenchikuLayer } from '../editor-2d/renderers/floorplan-kenchiku-layer'
 import { FloorplanMarqueeLayer } from '../editor-2d/renderers/floorplan-marquee-layer'
 import { FloorplanPlacementPreviewLayer } from '../editor-2d/renderers/floorplan-placement-preview-layer'
 import {
@@ -11486,6 +11487,8 @@ export function FloorplanPanel({
                   grid so the translucent capsules sit under the wall / opening
                   glyphs. */}
               <FloorplanVoronoiLayer />
+              {/* 建築法規パネルの耐力壁区間（計算後・表示中の階）。 */}
+              <FloorplanKenchikuLayer />
 
               <FloorplanReferenceFloorLayer
                 data={referenceFloorData}
