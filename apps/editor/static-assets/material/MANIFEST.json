@@ -1,0 +1,947 @@
+{
+ "source": "https://editor.pascal.app",
+ "project": "https://github.com/pascalorg/editor",
+ "fetchedAt": "2026-10-07T03:36:03.363Z",
+ "files": [
+  {
+   "path": "/material/flooring/brick_wall_aged/brick_wall_aged_ao_512.ktx2",
+   "bytes": 45683
+  },
+  {
+   "path": "/material/flooring/brick_wall_aged/brick_wall_aged_basecolor_512.ktx2",
+   "bytes": 35308
+  },
+  {
+   "path": "/material/flooring/brick_wall_aged/brick_wall_aged_metallic_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/flooring/brick_wall_aged/brick_wall_aged_normal_512.ktx2",
+   "bytes": 329431
+  },
+  {
+   "path": "/material/flooring/brick_wall_aged/brick_wall_aged_roughness_512.ktx2",
+   "bytes": 39831
+  },
+  {
+   "path": "/material/flooring/brick_wall_aged/brick_wall_aged_thumb.webp",
+   "bytes": 4406
+  },
+  {
+   "path": "/material/flooring/brick_wall_rustic/brick_wall_rustic_ao_512.ktx2",
+   "bytes": 34709
+  },
+  {
+   "path": "/material/flooring/brick_wall_rustic/brick_wall_rustic_basecolor_512.ktx2",
+   "bytes": 45715
+  },
+  {
+   "path": "/material/flooring/brick_wall_rustic/brick_wall_rustic_metallic_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/flooring/brick_wall_rustic/brick_wall_rustic_normal_512.ktx2",
+   "bytes": 282678
+  },
+  {
+   "path": "/material/flooring/brick_wall_rustic/brick_wall_rustic_roughness_512.ktx2",
+   "bytes": 46349
+  },
+  {
+   "path": "/material/flooring/brick_wall_rustic/brick_wall_rustic_thumb.webp",
+   "bytes": 9118
+  },
+  {
+   "path": "/material/flooring/brick_wall_weathered/brick_wall_weathered_ao_512.ktx2",
+   "bytes": 30715
+  },
+  {
+   "path": "/material/flooring/brick_wall_weathered/brick_wall_weathered_basecolor_512.ktx2",
+   "bytes": 42338
+  },
+  {
+   "path": "/material/flooring/brick_wall_weathered/brick_wall_weathered_normal_512.ktx2",
+   "bytes": 262887
+  },
+  {
+   "path": "/material/flooring/brick_wall_weathered/brick_wall_weathered_roughness_512.ktx2",
+   "bytes": 28346
+  },
+  {
+   "path": "/material/flooring/brick_wall_weathered/brick_wall_weathered_thumb.webp",
+   "bytes": 7212
+  },
+  {
+   "path": "/material/flooring/ceramic_mosaic/ceramic_mosaic_ao_512.ktx2",
+   "bytes": 3284
+  },
+  {
+   "path": "/material/flooring/ceramic_mosaic/ceramic_mosaic_basecolor_512.ktx2",
+   "bytes": 30090
+  },
+  {
+   "path": "/material/flooring/ceramic_mosaic/ceramic_mosaic_metallic_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/flooring/ceramic_mosaic/ceramic_mosaic_normal_512.ktx2",
+   "bytes": 2302
+  },
+  {
+   "path": "/material/flooring/ceramic_mosaic/ceramic_mosaic_roughness_512.ktx2",
+   "bytes": 8807
+  },
+  {
+   "path": "/material/flooring/ceramic_mosaic/ceramic_mosaic_thumb.webp",
+   "bytes": 22904
+  },
+  {
+   "path": "/material/flooring/dark_ceramic_grunge/dark_ceramic_grunge_ao_512.ktx2",
+   "bytes": 1875
+  },
+  {
+   "path": "/material/flooring/dark_ceramic_grunge/dark_ceramic_grunge_basecolor_512.ktx2",
+   "bytes": 42017
+  },
+  {
+   "path": "/material/flooring/dark_ceramic_grunge/dark_ceramic_grunge_metallic_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/flooring/dark_ceramic_grunge/dark_ceramic_grunge_normal_512.ktx2",
+   "bytes": 5411
+  },
+  {
+   "path": "/material/flooring/dark_ceramic_grunge/dark_ceramic_grunge_roughness_512.ktx2",
+   "bytes": 8897
+  },
+  {
+   "path": "/material/flooring/dark_ceramic_grunge/dark_ceramic_grunge_thumb.webp",
+   "bytes": 4182
+  },
+  {
+   "path": "/material/flooring/garage_panel/garage_panel_ao_512.ktx2",
+   "bytes": 6625
+  },
+  {
+   "path": "/material/flooring/garage_panel/garage_panel_basecolor_512.ktx2",
+   "bytes": 36983
+  },
+  {
+   "path": "/material/flooring/garage_panel/garage_panel_normal_512.ktx2",
+   "bytes": 234120
+  },
+  {
+   "path": "/material/flooring/garage_panel/garage_panel_thumb.webp",
+   "bytes": 1328
+  },
+  {
+   "path": "/material/flooring/green_glass_quartzite/green_glass_quartzite_ao_512.ktx2",
+   "bytes": 35459
+  },
+  {
+   "path": "/material/flooring/green_glass_quartzite/green_glass_quartzite_basecolor_512.ktx2",
+   "bytes": 48244
+  },
+  {
+   "path": "/material/flooring/green_glass_quartzite/green_glass_quartzite_normal_512.ktx2",
+   "bytes": 61748
+  },
+  {
+   "path": "/material/flooring/green_glass_quartzite/green_glass_quartzite_thumb.webp",
+   "bytes": 9046
+  },
+  {
+   "path": "/material/flooring/green_labradorite/green_labradorite_ao_512.ktx2",
+   "bytes": 41179
+  },
+  {
+   "path": "/material/flooring/green_labradorite/green_labradorite_basecolor_512.ktx2",
+   "bytes": 57184
+  },
+  {
+   "path": "/material/flooring/green_labradorite/green_labradorite_normal_512.ktx2",
+   "bytes": 85976
+  },
+  {
+   "path": "/material/flooring/green_labradorite/green_labradorite_thumb.webp",
+   "bytes": 20220
+  },
+  {
+   "path": "/material/flooring/ground_earth/ground_earth_ao_512.ktx2",
+   "bytes": 47044
+  },
+  {
+   "path": "/material/flooring/ground_earth/ground_earth_basecolor_512.ktx2",
+   "bytes": 52342
+  },
+  {
+   "path": "/material/flooring/ground_earth/ground_earth_metallic_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/flooring/ground_earth/ground_earth_normal_512.ktx2",
+   "bytes": 339141
+  },
+  {
+   "path": "/material/flooring/ground_earth/ground_earth_roughness_512.ktx2",
+   "bytes": 43979
+  },
+  {
+   "path": "/material/flooring/ground_earth/ground_earth_thumb.webp",
+   "bytes": 22108
+  },
+  {
+   "path": "/material/flooring/light_ceramic_grunge/light_ceramic_grunge_ao_512.ktx2",
+   "bytes": 1875
+  },
+  {
+   "path": "/material/flooring/light_ceramic_grunge/light_ceramic_grunge_basecolor_512.ktx2",
+   "bytes": 45704
+  },
+  {
+   "path": "/material/flooring/light_ceramic_grunge/light_ceramic_grunge_metallic_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/flooring/light_ceramic_grunge/light_ceramic_grunge_normal_512.ktx2",
+   "bytes": 5411
+  },
+  {
+   "path": "/material/flooring/light_ceramic_grunge/light_ceramic_grunge_roughness_512.ktx2",
+   "bytes": 8897
+  },
+  {
+   "path": "/material/flooring/light_ceramic_grunge/light_ceramic_grunge_thumb.webp",
+   "bytes": 6144
+  },
+  {
+   "path": "/material/flooring/pool_tiles/pool_tiles_ao_512.ktx2",
+   "bytes": 41099
+  },
+  {
+   "path": "/material/flooring/pool_tiles/pool_tiles_basecolor_512.ktx2",
+   "bytes": 57955
+  },
+  {
+   "path": "/material/flooring/pool_tiles/pool_tiles_normal_512.ktx2",
+   "bytes": 315515
+  },
+  {
+   "path": "/material/flooring/pool_tiles/pool_tiles_thumb.webp",
+   "bytes": 23172
+  },
+  {
+   "path": "/material/flooring/statuaretto/statuaretto_ao_512.ktx2",
+   "bytes": 43766
+  },
+  {
+   "path": "/material/flooring/statuaretto/statuaretto_basecolor_512.ktx2",
+   "bytes": 47309
+  },
+  {
+   "path": "/material/flooring/statuaretto/statuaretto_normal_512.ktx2",
+   "bytes": 183466
+  },
+  {
+   "path": "/material/flooring/statuaretto/statuaretto_thumb.webp",
+   "bytes": 12752
+  },
+  {
+   "path": "/material/flooring/stone_wall/stone_wall_ao_512.ktx2",
+   "bytes": 25766
+  },
+  {
+   "path": "/material/flooring/stone_wall/stone_wall_basecolor_512.ktx2",
+   "bytes": 55469
+  },
+  {
+   "path": "/material/flooring/stone_wall/stone_wall_normal_512.ktx2",
+   "bytes": 224254
+  },
+  {
+   "path": "/material/flooring/stone_wall/stone_wall_thumb.webp",
+   "bytes": 17266
+  },
+  {
+   "path": "/material/flooring/terrazzo/terrazzo_basecolor_512.ktx2",
+   "bytes": 44587
+  },
+  {
+   "path": "/material/flooring/terrazzo/terrazzo_metallic_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/flooring/terrazzo/terrazzo_normal_512.ktx2",
+   "bytes": 16483
+  },
+  {
+   "path": "/material/flooring/terrazzo/terrazzo_roughness_512.ktx2",
+   "bytes": 41960
+  },
+  {
+   "path": "/material/flooring/terrazzo/terrazzo_thumb.webp",
+   "bytes": 26126
+  },
+  {
+   "path": "/material/flooring/tile_mosaic/tile_mosaic_ao_512.ktx2",
+   "bytes": 1924
+  },
+  {
+   "path": "/material/flooring/tile_mosaic/tile_mosaic_basecolor_512.ktx2",
+   "bytes": 24376
+  },
+  {
+   "path": "/material/flooring/tile_mosaic/tile_mosaic_metallic_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/flooring/tile_mosaic/tile_mosaic_normal_512.ktx2",
+   "bytes": 5233
+  },
+  {
+   "path": "/material/flooring/tile_mosaic/tile_mosaic_roughness_512.ktx2",
+   "bytes": 7914
+  },
+  {
+   "path": "/material/flooring/tile_mosaic/tile_mosaic_thumb.webp",
+   "bytes": 1142
+  },
+  {
+   "path": "/material/flooring/tile_pattern/tile_pattern_ao_512.ktx2",
+   "bytes": 4714
+  },
+  {
+   "path": "/material/flooring/tile_pattern/tile_pattern_basecolor_512.ktx2",
+   "bytes": 46124
+  },
+  {
+   "path": "/material/flooring/tile_pattern/tile_pattern_metallic_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/flooring/tile_pattern/tile_pattern_normal_512.ktx2",
+   "bytes": 7071
+  },
+  {
+   "path": "/material/flooring/tile_pattern/tile_pattern_roughness_512.ktx2",
+   "bytes": 40422
+  },
+  {
+   "path": "/material/flooring/tile_pattern/tile_pattern_thumb.webp",
+   "bytes": 5468
+  },
+  {
+   "path": "/material/flooring/tile_quarry/tile_quarry_ao_512.ktx2",
+   "bytes": 1141
+  },
+  {
+   "path": "/material/flooring/tile_quarry/tile_quarry_basecolor_512.ktx2",
+   "bytes": 48045
+  },
+  {
+   "path": "/material/flooring/tile_quarry/tile_quarry_normal_512.ktx2",
+   "bytes": 11917
+  },
+  {
+   "path": "/material/flooring/tile_quarry/tile_quarry_roughness_512.ktx2",
+   "bytes": 11248
+  },
+  {
+   "path": "/material/flooring/tile_quarry/tile_quarry_thumb.webp",
+   "bytes": 10454
+  },
+  {
+   "path": "/material/flooring/tile_stone/tile_stone_ao_512.ktx2",
+   "bytes": 1193
+  },
+  {
+   "path": "/material/flooring/tile_stone/tile_stone_basecolor_512.ktx2",
+   "bytes": 46490
+  },
+  {
+   "path": "/material/flooring/tile_stone/tile_stone_normal_512.ktx2",
+   "bytes": 13218
+  },
+  {
+   "path": "/material/flooring/tile_stone/tile_stone_roughness_512.ktx2",
+   "bytes": 9211
+  },
+  {
+   "path": "/material/flooring/tile_stone/tile_stone_thumb.webp",
+   "bytes": 8240
+  },
+  {
+   "path": "/material/flooring/tile_terracotta/tile_terracotta_ao_512.ktx2",
+   "bytes": 1098
+  },
+  {
+   "path": "/material/flooring/tile_terracotta/tile_terracotta_basecolor_512.ktx2",
+   "bytes": 50395
+  },
+  {
+   "path": "/material/flooring/tile_terracotta/tile_terracotta_normal_512.ktx2",
+   "bytes": 8631
+  },
+  {
+   "path": "/material/flooring/tile_terracotta/tile_terracotta_roughness_512.ktx2",
+   "bytes": 13100
+  },
+  {
+   "path": "/material/flooring/tile_terracotta/tile_terracotta_thumb.webp",
+   "bytes": 12130
+  },
+  {
+   "path": "/material/flooring/tiles_checker/tiles_checker_ao_512.ktx2",
+   "bytes": 10141
+  },
+  {
+   "path": "/material/flooring/tiles_checker/tiles_checker_basecolor_512.ktx2",
+   "bytes": 45554
+  },
+  {
+   "path": "/material/flooring/tiles_checker/tiles_checker_normal_512.ktx2",
+   "bytes": 45019
+  },
+  {
+   "path": "/material/flooring/tiles_checker/tiles_checker_thumb.webp",
+   "bytes": 9142
+  },
+  {
+   "path": "/material/flooring/tiles_grid/tiles_grid_ao_512.ktx2",
+   "bytes": 13671
+  },
+  {
+   "path": "/material/flooring/tiles_grid/tiles_grid_basecolor_512.ktx2",
+   "bytes": 47105
+  },
+  {
+   "path": "/material/flooring/tiles_grid/tiles_grid_normal_512.ktx2",
+   "bytes": 27049
+  },
+  {
+   "path": "/material/flooring/tiles_grid/tiles_grid_thumb.webp",
+   "bytes": 8434
+  },
+  {
+   "path": "/material/flooring/wooden_ceramic_2/wooden_ceramic_2_ao_512.ktx2",
+   "bytes": 22786
+  },
+  {
+   "path": "/material/flooring/wooden_ceramic_2/wooden_ceramic_2_basecolor_512.ktx2",
+   "bytes": 45729
+  },
+  {
+   "path": "/material/flooring/wooden_ceramic_2/wooden_ceramic_2_normal_512.ktx2",
+   "bytes": 219405
+  },
+  {
+   "path": "/material/flooring/wooden_ceramic_2/wooden_ceramic_2_thumb.webp",
+   "bytes": 6990
+  },
+  {
+   "path": "/material/flooring/wooden_ceramic_3/wooden_ceramic_3_ao_512.ktx2",
+   "bytes": 15599
+  },
+  {
+   "path": "/material/flooring/wooden_ceramic_3/wooden_ceramic_3_basecolor_512.ktx2",
+   "bytes": 48214
+  },
+  {
+   "path": "/material/flooring/wooden_ceramic_3/wooden_ceramic_3_normal_512.ktx2",
+   "bytes": 237515
+  },
+  {
+   "path": "/material/flooring/wooden_ceramic_3/wooden_ceramic_3_thumb.webp",
+   "bytes": 7736
+  },
+  {
+   "path": "/material/flooring/woodparquet/woodparquet_ao_512.ktx2",
+   "bytes": 11224
+  },
+  {
+   "path": "/material/flooring/woodparquet/woodparquet_basecolor_512.ktx2",
+   "bytes": 46717
+  },
+  {
+   "path": "/material/flooring/woodparquet/woodparquet_metallic_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/flooring/woodparquet/woodparquet_normal_512.ktx2",
+   "bytes": 5602
+  },
+  {
+   "path": "/material/flooring/woodparquet/woodparquet_roughness_512.ktx2",
+   "bytes": 5570
+  },
+  {
+   "path": "/material/flooring/woodparquet/woodparquet_thumb.webp",
+   "bytes": 4918
+  },
+  {
+   "path": "/material/roofing/roof_shingles_classic/roof_shingles_classic_ao_512.ktx2",
+   "bytes": 29483
+  },
+  {
+   "path": "/material/roofing/roof_shingles_classic/roof_shingles_classic_basecolor_512.ktx2",
+   "bytes": 36781
+  },
+  {
+   "path": "/material/roofing/roof_shingles_classic/roof_shingles_classic_metallic_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/roofing/roof_shingles_classic/roof_shingles_classic_normal_512.ktx2",
+   "bytes": 253085
+  },
+  {
+   "path": "/material/roofing/roof_shingles_classic/roof_shingles_classic_roughness_512.ktx2",
+   "bytes": 32454
+  },
+  {
+   "path": "/material/roofing/roof_shingles_classic/roof_shingles_classic_thumb.webp",
+   "bytes": 2398
+  },
+  {
+   "path": "/material/roofing/roof_shingles_weathered/roof_shingles_weathered_ao_512.ktx2",
+   "bytes": 25007
+  },
+  {
+   "path": "/material/roofing/roof_shingles_weathered/roof_shingles_weathered_basecolor_512.ktx2",
+   "bytes": 33140
+  },
+  {
+   "path": "/material/roofing/roof_shingles_weathered/roof_shingles_weathered_metallic_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/roofing/roof_shingles_weathered/roof_shingles_weathered_normal_512.ktx2",
+   "bytes": 239180
+  },
+  {
+   "path": "/material/roofing/roof_shingles_weathered/roof_shingles_weathered_roughness_512.ktx2",
+   "bytes": 27703
+  },
+  {
+   "path": "/material/roofing/roof_shingles_weathered/roof_shingles_weathered_thumb.webp",
+   "bytes": 2292
+  },
+  {
+   "path": "/material/roofing/roof_tiles_clay/roof_tiles_clay_ao_512.ktx2",
+   "bytes": 39414
+  },
+  {
+   "path": "/material/roofing/roof_tiles_clay/roof_tiles_clay_basecolor_512.ktx2",
+   "bytes": 29902
+  },
+  {
+   "path": "/material/roofing/roof_tiles_clay/roof_tiles_clay_metallic_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/roofing/roof_tiles_clay/roof_tiles_clay_normal_512.ktx2",
+   "bytes": 206171
+  },
+  {
+   "path": "/material/roofing/roof_tiles_clay/roof_tiles_clay_roughness_512.ktx2",
+   "bytes": 30251
+  },
+  {
+   "path": "/material/roofing/roof_tiles_clay/roof_tiles_clay_thumb.webp",
+   "bytes": 2256
+  },
+  {
+   "path": "/material/roofing/roof_tiles_terracotta/roof_tiles_terracotta_ao_512.ktx2",
+   "bytes": 11870
+  },
+  {
+   "path": "/material/roofing/roof_tiles_terracotta/roof_tiles_terracotta_basecolor_512.ktx2",
+   "bytes": 9054
+  },
+  {
+   "path": "/material/roofing/roof_tiles_terracotta/roof_tiles_terracotta_metallic_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/roofing/roof_tiles_terracotta/roof_tiles_terracotta_normal_512.ktx2",
+   "bytes": 39686
+  },
+  {
+   "path": "/material/roofing/roof_tiles_terracotta/roof_tiles_terracotta_roughness_512.ktx2",
+   "bytes": 8292
+  },
+  {
+   "path": "/material/roofing/roof_tiles_terracotta/roof_tiles_terracotta_thumb.webp",
+   "bytes": 898
+  },
+  {
+   "path": "/material/wood/finewood_27/finewood_27_ao_512.ktx2",
+   "bytes": 4990
+  },
+  {
+   "path": "/material/wood/finewood_27/finewood_27_basecolor_512.ktx2",
+   "bytes": 35211
+  },
+  {
+   "path": "/material/wood/finewood_27/finewood_27_normal_512.ktx2",
+   "bytes": 83488
+  },
+  {
+   "path": "/material/wood/finewood_27/finewood_27_roughness_512.ktx2",
+   "bytes": 6216
+  },
+  {
+   "path": "/material/wood/finewood_27/finewood_27_thumb.webp",
+   "bytes": 1824
+  },
+  {
+   "path": "/material/wood/floor_plank_1/floor_plank_1_ao_512.ktx2",
+   "bytes": 37718
+  },
+  {
+   "path": "/material/wood/floor_plank_1/floor_plank_1_basecolor_512.ktx2",
+   "bytes": 52357
+  },
+  {
+   "path": "/material/wood/floor_plank_1/floor_plank_1_normal_512.ktx2",
+   "bytes": 147189
+  },
+  {
+   "path": "/material/wood/floor_plank_1/floor_plank_1_thumb.webp",
+   "bytes": 14784
+  },
+  {
+   "path": "/material/wood/hungarian_parquet_10/hungarian_parquet_10_basecolor_512.ktx2",
+   "bytes": 47992
+  },
+  {
+   "path": "/material/wood/hungarian_parquet_10/hungarian_parquet_10_normal_512.ktx2",
+   "bytes": 57898
+  },
+  {
+   "path": "/material/wood/hungarian_parquet_10/hungarian_parquet_10_roughness_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/wood/hungarian_parquet_10/hungarian_parquet_10_thumb.webp",
+   "bytes": 8378
+  },
+  {
+   "path": "/material/wood/hungarian_parquet_2/hungarian_parquet_2_basecolor_512.ktx2",
+   "bytes": 40363
+  },
+  {
+   "path": "/material/wood/hungarian_parquet_2/hungarian_parquet_2_normal_512.ktx2",
+   "bytes": 50444
+  },
+  {
+   "path": "/material/wood/hungarian_parquet_2/hungarian_parquet_2_roughness_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/wood/hungarian_parquet_2/hungarian_parquet_2_thumb.webp",
+   "bytes": 3086
+  },
+  {
+   "path": "/material/wood/square_parquet_21/square_parquet_21_basecolor_512.ktx2",
+   "bytes": 41997
+  },
+  {
+   "path": "/material/wood/square_parquet_21/square_parquet_21_normal_512.ktx2",
+   "bytes": 29198
+  },
+  {
+   "path": "/material/wood/square_parquet_21/square_parquet_21_roughness_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/wood/square_parquet_21/square_parquet_21_thumb.webp",
+   "bytes": 3240
+  },
+  {
+   "path": "/material/wood/square_wood_parquet_23/square_wood_parquet_23_basecolor_512.ktx2",
+   "bytes": 46690
+  },
+  {
+   "path": "/material/wood/square_wood_parquet_23/square_wood_parquet_23_normal_512.ktx2",
+   "bytes": 28703
+  },
+  {
+   "path": "/material/wood/square_wood_parquet_23/square_wood_parquet_23_roughness_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/wood/square_wood_parquet_23/square_wood_parquet_23_thumb.webp",
+   "bytes": 7092
+  },
+  {
+   "path": "/material/wood/wood_fine_11/wood_fine_11_ao_512.ktx2",
+   "bytes": 37044
+  },
+  {
+   "path": "/material/wood/wood_fine_11/wood_fine_11_basecolor_512.ktx2",
+   "bytes": 41319
+  },
+  {
+   "path": "/material/wood/wood_fine_11/wood_fine_11_normal_512.ktx2",
+   "bytes": 92982
+  },
+  {
+   "path": "/material/wood/wood_fine_11/wood_fine_11_thumb.webp",
+   "bytes": 4482
+  },
+  {
+   "path": "/material/wood/wood_fine_13/wood_fine_13_ao_512.ktx2",
+   "bytes": 31188
+  },
+  {
+   "path": "/material/wood/wood_fine_13/wood_fine_13_basecolor_512.ktx2",
+   "bytes": 46666
+  },
+  {
+   "path": "/material/wood/wood_fine_13/wood_fine_13_normal_512.ktx2",
+   "bytes": 243788
+  },
+  {
+   "path": "/material/wood/wood_fine_13/wood_fine_13_thumb.webp",
+   "bytes": 9774
+  },
+  {
+   "path": "/material/wood/wood_fine_2/wood_fine_2_ao_512.ktx2",
+   "bytes": 11094
+  },
+  {
+   "path": "/material/wood/wood_fine_2/wood_fine_2_basecolor_512.ktx2",
+   "bytes": 40701
+  },
+  {
+   "path": "/material/wood/wood_fine_2/wood_fine_2_normal_512.ktx2",
+   "bytes": 26230
+  },
+  {
+   "path": "/material/wood/wood_fine_2/wood_fine_2_thumb.webp",
+   "bytes": 4648
+  },
+  {
+   "path": "/material/wood/wood_fine_22/wood_fine_22_ao_512.ktx2",
+   "bytes": 38662
+  },
+  {
+   "path": "/material/wood/wood_fine_22/wood_fine_22_basecolor_512.ktx2",
+   "bytes": 50600
+  },
+  {
+   "path": "/material/wood/wood_fine_22/wood_fine_22_normal_512.ktx2",
+   "bytes": 169155
+  },
+  {
+   "path": "/material/wood/wood_fine_22/wood_fine_22_thumb.webp",
+   "bytes": 12902
+  },
+  {
+   "path": "/material/wood/wood_fine_24/wood_fine_24_ao_512.ktx2",
+   "bytes": 8689
+  },
+  {
+   "path": "/material/wood/wood_fine_24/wood_fine_24_basecolor_512.ktx2",
+   "bytes": 47570
+  },
+  {
+   "path": "/material/wood/wood_fine_24/wood_fine_24_normal_512.ktx2",
+   "bytes": 83211
+  },
+  {
+   "path": "/material/wood/wood_fine_24/wood_fine_24_thumb.webp",
+   "bytes": 8892
+  },
+  {
+   "path": "/material/wood/wood_fine/wood_fine_ao_512.ktx2",
+   "bytes": 34594
+  },
+  {
+   "path": "/material/wood/wood_fine/wood_fine_basecolor_512.ktx2",
+   "bytes": 50777
+  },
+  {
+   "path": "/material/wood/wood_fine/wood_fine_normal_512.ktx2",
+   "bytes": 208504
+  },
+  {
+   "path": "/material/wood/wood_fine/wood_fine_thumb.webp",
+   "bytes": 14042
+  },
+  {
+   "path": "/material/wood/wood_parquet_14/wood_parquet_14_ao_512.ktx2",
+   "bytes": 5474
+  },
+  {
+   "path": "/material/wood/wood_parquet_14/wood_parquet_14_basecolor_512.ktx2",
+   "bytes": 41478
+  },
+  {
+   "path": "/material/wood/wood_parquet_14/wood_parquet_14_metallic_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/wood/wood_parquet_14/wood_parquet_14_normal_512.ktx2",
+   "bytes": 15511
+  },
+  {
+   "path": "/material/wood/wood_parquet_14/wood_parquet_14_roughness_512.ktx2",
+   "bytes": 36988
+  },
+  {
+   "path": "/material/wood/wood_parquet_14/wood_parquet_14_thumb.webp",
+   "bytes": 3544
+  },
+  {
+   "path": "/material/wood/wooden_parquet_11/wooden_parquet_11_basecolor_512.ktx2",
+   "bytes": 46394
+  },
+  {
+   "path": "/material/wood/wooden_parquet_11/wooden_parquet_11_normal_512.ktx2",
+   "bytes": 46115
+  },
+  {
+   "path": "/material/wood/wooden_parquet_11/wooden_parquet_11_roughness_512.ktx2",
+   "bytes": 4719
+  },
+  {
+   "path": "/material/wood/wooden_parquet_11/wooden_parquet_11_thumb.webp",
+   "bytes": 6454
+  },
+  {
+   "path": "/material/wood/woodparquet_121/woodparquet_121_ao_512.ktx2",
+   "bytes": 26907
+  },
+  {
+   "path": "/material/wood/woodparquet_121/woodparquet_121_basecolor_512.ktx2",
+   "bytes": 46334
+  },
+  {
+   "path": "/material/wood/woodparquet_121/woodparquet_121_normal_512.ktx2",
+   "bytes": 39781
+  },
+  {
+   "path": "/material/wood/woodparquet_121/woodparquet_121_roughness_512.ktx2",
+   "bytes": 1075
+  },
+  {
+   "path": "/material/wood/woodparquet_121/woodparquet_121_thumb.webp",
+   "bytes": 8240
+  },
+  {
+   "path": "/material/wood/woodparquet_56/woodparquet_56_ao_512.ktx2",
+   "bytes": 47890
+  },
+  {
+   "path": "/material/wood/woodparquet_56/woodparquet_56_basecolor_512.ktx2",
+   "bytes": 50448
+  },
+  {
+   "path": "/material/wood/woodparquet_56/woodparquet_56_metallic_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/wood/woodparquet_56/woodparquet_56_normal_512.ktx2",
+   "bytes": 171630
+  },
+  {
+   "path": "/material/wood/woodparquet_56/woodparquet_56_roughness_512.ktx2",
+   "bytes": 17764
+  },
+  {
+   "path": "/material/wood/woodparquet_56/woodparquet_56_thumb.webp",
+   "bytes": 10776
+  },
+  {
+   "path": "/material/wood/woodparquet_65/woodparquet_65_ao_512.ktx2",
+   "bytes": 28822
+  },
+  {
+   "path": "/material/wood/woodparquet_65/woodparquet_65_basecolor_512.ktx2",
+   "bytes": 48055
+  },
+  {
+   "path": "/material/wood/woodparquet_65/woodparquet_65_metallic_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/wood/woodparquet_65/woodparquet_65_normal_512.ktx2",
+   "bytes": 101345
+  },
+  {
+   "path": "/material/wood/woodparquet_65/woodparquet_65_roughness_512.ktx2",
+   "bytes": 13041
+  },
+  {
+   "path": "/material/wood/woodparquet_65/woodparquet_65_thumb.webp",
+   "bytes": 6126
+  },
+  {
+   "path": "/material/wood/woodparquet_99/woodparquet_99_ao_512.ktx2",
+   "bytes": 42138
+  },
+  {
+   "path": "/material/wood/woodparquet_99/woodparquet_99_basecolor_512.ktx2",
+   "bytes": 47360
+  },
+  {
+   "path": "/material/wood/woodparquet_99/woodparquet_99_metallic_512.ktx2",
+   "bytes": 964
+  },
+  {
+   "path": "/material/wood/woodparquet_99/woodparquet_99_normal_512.ktx2",
+   "bytes": 242980
+  },
+  {
+   "path": "/material/wood/woodparquet_99/woodparquet_99_roughness_512.ktx2",
+   "bytes": 45728
+  },
+  {
+   "path": "/material/wood/woodparquet_99/woodparquet_99_thumb.webp",
+   "bytes": 5714
+  },
+  {
+   "path": "/material/wood/woodplank_19/woodplank_19_ao_512.ktx2",
+   "bytes": 7285
+  },
+  {
+   "path": "/material/wood/woodplank_19/woodplank_19_basecolor_512.ktx2",
+   "bytes": 46148
+  },
+  {
+   "path": "/material/wood/woodplank_19/woodplank_19_normal_512.ktx2",
+   "bytes": 19628
+  },
+  {
+   "path": "/material/wood/woodplank_19/woodplank_19_roughness_512.ktx2",
+   "bytes": 10776
+  },
+  {
+   "path": "/material/wood/woodplank_19/woodplank_19_thumb.webp",
+   "bytes": 6246
+  },
+  {
+   "path": "/material/wood/woodplank_48/woodplank_48_ao_512.ktx2",
+   "bytes": 14299
+  },
+  {
+   "path": "/material/wood/woodplank_48/woodplank_48_basecolor_512.ktx2",
+   "bytes": 47305
+  },
+  {
+   "path": "/material/wood/woodplank_48/woodplank_48_normal_512.ktx2",
+   "bytes": 95555
+  },
+  {
+   "path": "/material/wood/woodplank_48/woodplank_48_roughness_512.ktx2",
+   "bytes": 43312
+  },
+  {
+   "path": "/material/wood/woodplank_48/woodplank_48_thumb.webp",
+   "bytes": 5444
+  }
+ ]
+}

@@ -60,5 +60,9 @@ cpSync(path.join(threeLibs, 'basis'), path.join(outDir, 'decoders/basis'), { rec
 
 // 家具カタログ等の素材（scripts/mirror-catalog.mjs で取得済み）を成果物へコピー
 cpSync(path.join(appDir, 'static-assets/catalog'), path.join(outDir, 'catalog'), { recursive: true })
+// public/material に無い素材（scripts/mirror-materials.mjs で取得済み）を /material/ に重ねる
+if (existsSync(path.join(appDir, 'static-assets/material'))) {
+  cpSync(path.join(appDir, 'static-assets/material'), path.join(outDir, 'material'), { recursive: true })
+}
 walk(outDir)
 console.log(`静的書き出し完了: ${outDir} / 書き換え ${replaced} 箇所 (${files} ファイル) / base=${base}`)
