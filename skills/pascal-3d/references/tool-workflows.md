@@ -68,3 +68,12 @@ Do not mutate just to make a report unless the user authorizes a temporary or sa
 - No tool starts a room scan or clones a scan into a new project. Scans are created only by the Pascal iOS app, and `open_capture_as_project` opens the scan's existing owning project.
 
 When a requested deliverable is unsupported, return `partial` or `failed` with the tool status and the next supported action. Do not substitute an invented file, URL, or capability.
+
+## Japanese building-code checks (jp_* tools, N's factory fork)
+
+Available when the connected Pascal is the N's factory fork. They cover wooden post-and-beam houses up to two storeys under the 2025-04 rules (建築基準法施行令46条4項・告示1100号/1349号/1460号).
+
+1. Mark bearing walls first: `jp_set_wall_bearing` with the wall ids from `get_walls` and a kind such as `panel-plywood` (構造用合板, ratio 2.5) or `brace-45x90` (筋かい, 2.0). Walls without a spec count as non-bearing.
+2. Run `jp_structural_check`: it returns required wall quantity per storey (`requiredWall.lw`, cm per m²), wind requirement, existing wall quantity per storey and direction with pass/fail, the quarter-method balance, N-value hardware symbols and minimum column size. A refusal `jp_not_computable` names the missing input (for example no building, or a storey count outside phase A).
+3. Run `jp_building_code_check` for site and room rules. Checks reported as `input-needed` wait for site facts (zoning, coverage ratios, roads) that a person enters in the editor's 建築法規 panel; do not invent them.
+4. `jp_get_document` returns one printable HTML document (D1 wall quantity … D9 specification sheet). Hand the html to the person; every page states that it is a design reference and needs an architect's verification.

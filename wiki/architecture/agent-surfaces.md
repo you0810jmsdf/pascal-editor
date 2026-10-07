@@ -56,3 +56,14 @@ Hosted service tools have public contracts in `core/agent-tools` and a shared re
 | `fit_stair` | `fitStairTool` in `core/agent-tools` | `AGENT_OPERATIONS.fit_stair` | Shared-tool adapter; applies the planned changes atomically | Needs hosted-chat registration and executor port (companion change in private-editor) |
 
 Both surfaces use the zod-only `@pascal-app/core/agent-tools` contracts and the plans in `@pascal-app/core/agent-operations`. The hosted-chat port needs registration, executor integration and parity tests. The published `pascal-3d` skill and MCP agent guide describe the same sizing, winder and measurement semantics. Design targets are preferences, not code certification; measurement reports only the modeled obstacles it supports.
+
+## Japanese building-code parity (N's factory fork)
+
+| Capability | Shared contract | Shared operation | MCP | Hosted AI chat |
+|---|---|---|---|---|
+| `jp_structural_check` | `jpStructuralCheckTool` in `core/agent-tools/kenchiku.ts` | `AGENT_OPERATIONS.jp_structural_check` | Shared-tool adapter; read-only | Not registered in this fork (no hosted chat) |
+| `jp_building_code_check` | `jpBuildingCodeCheckTool` | `AGENT_OPERATIONS.jp_building_code_check` | Shared-tool adapter; read-only | — |
+| `jp_set_wall_bearing` | `jpSetWallBearingTool` | `AGENT_OPERATIONS.jp_set_wall_bearing` | Shared-tool adapter; updates `wall.jp.bearing` only | — |
+| `jp_get_document` | `jpGetDocumentTool` | `AGENT_OPERATIONS.jp_get_document` | Shared-tool adapter; returns printable HTML | — |
+
+The operations adapt the scene with `core/src/kenchiku/adapter.ts` and compute in the Pascal-free package `@nsfactory/kenchiku` (`packages/kenchiku`): the editor panel, the MCP and any future chat share the same numbers and explanations. Edge cases live in `core/src/agent-operations/__fixtures__/kenchiku-cases.ts` and run through the core and MCP runners. Spec: `docs/nsfactory/kenchiku-spec.md`.

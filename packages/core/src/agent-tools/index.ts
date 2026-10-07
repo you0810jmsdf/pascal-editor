@@ -3,6 +3,12 @@ import { editCollectionTool, listCollectionsTool } from './collections'
 import { addColumnTool } from './columns'
 import { findByTypeTool } from './find-by-type'
 import {
+  jpBuildingCodeCheckTool,
+  jpGetDocumentTool,
+  jpSetWallBearingTool,
+  jpStructuralCheckTool,
+} from './kenchiku'
+import {
   duplicateLevelTool,
   getLevelSummaryTool,
   getWallsTool,
@@ -19,6 +25,7 @@ export * from './collections'
 export * from './columns'
 export * from './find-by-type'
 export * from './hosted-services'
+export * from './kenchiku'
 export * from './levels'
 export * from './measurement'
 export { NodeId } from './node-id'
@@ -51,4 +58,8 @@ export const AGENT_TOOL_CONTRACTS = [
   findByTypeTool,
   editCollectionTool,
   listCollectionsTool,
+  jpStructuralCheckTool,
+  jpBuildingCodeCheckTool,
+  jpSetWallBearingTool,
+  jpGetDocumentTool,
 ] as const

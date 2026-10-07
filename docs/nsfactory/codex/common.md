@@ -26,5 +26,8 @@
 - ⚠ リポジトリ全体の `bun run check` は、あなたの作業前から既存コード（`packages/viewer/src/systems/interactive/interactive-system.tsx` の useExhaustiveDependencies、`packages/viewer/src/systems/wall/*.test.ts` の plugin 診断、`apps/editor` の organizeImports/noAutofocus 等）で失敗している。**これらは直さない**（別作業の範囲）。自分が追加・変更したファイルに Biome の指摘が無いことだけを保証する。
 - 変更したファイル一覧・追加した TODO・気になる点を最終メッセージに書く。「動くはず」ではなく、実行したコマンドと結果を書く。
 
+## ビルド成果物（dist）の罠
+- ワークスペースの各パッケージは `dist/` 経由で参照される（`turbo test` は依存の build を先に走らせるが、`bun test <filter>` は走らせない）。`packages/kenchiku` や `packages/core` の公開 API を変えたら、テストの前にそのパッケージで `bun run build` を実行する。「Export named 'X' not found in module …/dist/index.js」はこれが原因。
+
 ## 用語の対応
 X方向 = 建物座標系の x 軸に平行な壁、Y方向 = z 軸に平行な壁。cm 単位は壁量、m 単位は幾何、N/㎡・kN/㎡ は荷重。丸めは仕様書の式どおり（`ceil`・10N 単位切上げ）。

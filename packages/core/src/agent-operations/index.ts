@@ -2,6 +2,7 @@ import { deleteNode } from './delete-node'
 import { duplicateLevel } from './duplicate-level'
 import { findByType } from './find-by-type'
 import { getNode } from './get-node'
+import { jpBuildingCodeCheck, jpGetDocument, jpSetWallBearing, jpStructuralCheck } from './kenchiku'
 import { getLevelSummary, getWalls, getZones } from './level-reads'
 import { listLevels } from './list-levels'
 import { fitStair, measureStairOperation } from './stairs'
@@ -17,6 +18,7 @@ export * from './duplicate-level'
 export * from './find-by-type'
 export * from './get-node'
 export * from './hosted-services'
+export * from './kenchiku'
 export * from './layout-clearance'
 export * from './level-reads'
 export * from './level-target'
@@ -41,4 +43,8 @@ export const AGENT_OPERATIONS = {
   verify_scene: verifyScene,
   delete_node: deleteNode,
   find_by_type: findByType,
+  jp_structural_check: jpStructuralCheck,
+  jp_building_code_check: jpBuildingCodeCheck,
+  jp_set_wall_bearing: jpSetWallBearing,
+  jp_get_document: jpGetDocument,
 } as const

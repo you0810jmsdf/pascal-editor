@@ -40,6 +40,9 @@ const TOOL_POLICIES = [
       'validate_design',
       'validate_scene',
       'verify_scene',
+      'jp_structural_check',
+      'jp_building_code_check',
+      'jp_get_document',
     ],
   },
   {
@@ -71,6 +74,7 @@ const TOOL_POLICIES = [
       'cut_opening',
       'cut_floor_opening',
       'duplicate_level',
+      'jp_set_wall_bearing',
       'furnish_room',
       'generate_variants',
       'place_design',

@@ -15,6 +15,7 @@ import {
   WindowNode,
   ZoneNode,
 } from '../../schema'
+import { KENCHIKU_CASES } from './kenchiku-cases'
 import { VERIFY_SCENE_CASES } from './verify-scene-cases'
 
 /**
@@ -731,4 +732,5 @@ export const AGENT_TOOL_CASES: readonly AgentToolCase[] = [
   ...DUPLICATE_LEVEL_CASES,
   ...VERIFY_SCENE_CASES,
   ...DELETE_NODE_CASES,
+  ...KENCHIKU_CASES,
 ]
