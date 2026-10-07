@@ -11487,8 +11487,6 @@ export function FloorplanPanel({
                   grid so the translucent capsules sit under the wall / opening
                   glyphs. */}
               <FloorplanVoronoiLayer />
-              {/* 建築法規パネルの耐力壁区間（計算後・表示中の階）。 */}
-              <FloorplanKenchikuLayer />
 
               <FloorplanReferenceFloorLayer
                 data={referenceFloorData}
@@ -11585,6 +11583,8 @@ export function FloorplanPanel({
                       `floorplan-wall-move-ghost-layer.tsx`. */}
                   <FloorplanWallMoveGhostLayer />
                 </g>
+                {/* 建築法規パネルの耐力壁区間（計算後・表示中の階）。壁・部屋の塗りの上に重ねる。 */}
+                <FloorplanKenchikuLayer />
                 <FloorplanMeasurementToolLayer />
                 <FloorplanRegisteredToolLayer />
                 {floorplanSceneSlot}
