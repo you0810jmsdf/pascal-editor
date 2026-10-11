@@ -1,7 +1,7 @@
 'use client'
 
+import { Editor, MyGlbItemsPanel, MyItemsRehydrator, type SceneGraph } from '@pascal-app/editor'
 import { t } from '@pascal-app/editor/i18n'
-import { Editor, ItemsPanel, type SceneGraph } from '@pascal-app/editor'
 import { PascalWebXRButton } from '@webxr/plugin/pascal-editor'
 import { Hammer, Layers, Package, Palette, Settings } from 'lucide-react'
 import Image from 'next/image'
@@ -21,8 +21,9 @@ import {
 // The open-source editor only ships the built-in catalog (no uploaded items),
 // so the Library/Community/Mine source chips and tag filters add nothing —
 // drop them and keep the panel to plain categories.
+// N's factory: 自分で入手した GLB をこのブラウザの中だけに読み込める（素材は同梱しない）
 function EditorItemsPanel() {
-  return <ItemsPanel showSourceFilter={false} showTagFilters={false} />
+  return <MyGlbItemsPanel />
 }
 
 // 静的版（GitHub Pages）にはシーン一覧ページが無いため、案内バナーを出さない
@@ -136,7 +137,8 @@ export function Workspace({ projectId = PROJECT_ID, onLoad, onSave, overlay }: W
                     <span className="text-muted-foreground">
                       Blank canvas — saved scenes are under Scenes (not this page).
                     </span>
-                    <Link prefetch={false}
+                    <Link
+                      prefetch={false}
                       className="pointer-events-auto font-medium text-foreground hover:underline"
                       href="/scenes"
                     >
@@ -147,7 +149,8 @@ export function Workspace({ projectId = PROJECT_ID, onLoad, onSave, overlay }: W
               )}
               {overlay === undefined && projectId === 'local-editor' && IS_STATIC_EXPORT && (
                 <div className="pointer-events-none absolute top-14 left-1/2 z-40 -translate-x-1/2">
-                  <Link prefetch={false}
+                  <Link
+                    prefetch={false}
                     className="pointer-events-auto rounded-full border border-border bg-background/90 px-4 py-1.5 font-medium text-xs shadow-sm backdrop-blur hover:bg-accent/40"
                     href="/scenes"
                   >
@@ -156,6 +159,7 @@ export function Workspace({ projectId = PROJECT_ID, onLoad, onSave, overlay }: W
                 </div>
               )}
               {overlay}
+              <MyItemsRehydrator />
               <Editor
                 immersive={vr?.session ? vr.immersive : undefined}
                 layoutVersion="v2"
