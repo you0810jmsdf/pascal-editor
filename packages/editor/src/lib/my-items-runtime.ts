@@ -3,10 +3,10 @@
  *
  * 描画側の `resolveCdnUrl` は `blob:` をそのまま通すので、GLB 本体は一時的な blob URL にして
  * `src` に差す（`asset://` は描画側が解決しない）。URL は素材ごとに1つだけ作って使い回し、
- * 削除時に破棄する。サムネイルは R4 までの間、名前の頭文字の簡易画像（SVG）を使う。
+ * 削除時に破棄する。サムネイルは登録時に描画した画像を使い、無ければ名前の頭文字の簡易画像（SVG）。
  */
 import type { AssetInput } from '@pascal-app/core'
-import { getMyItemFile, listMyItems, type MyItemMeta } from './my-items-store'
+import { getMyItemFile, getMyItemThumb, listMyItems, type MyItemMeta } from './my-items-store'
 
 type UrlSet = { src: string; thumbnail: string }
 
@@ -55,7 +55,12 @@ export async function loadMyCatalogItems(factory?: IDBFactory): Promise<AssetInp
     if (!urls) {
       const file = await getMyItemFile(meta.id, factory)
       if (!file) continue
-      urls = { src: URL.createObjectURL(file), thumbnail: placeholderThumbnail(meta.name) }
+      // 描画したサムネイルがあればそれを、無ければ名前の頭文字の簡易画像を使う
+      const thumb = await getMyItemThumb(meta.id, factory)
+      urls = {
+        src: URL.createObjectURL(file),
+        thumbnail: thumb ? URL.createObjectURL(thumb) : placeholderThumbnail(meta.name),
+      }
       urlCache.set(meta.id, urls)
     }
     items.push(toAssetInput(meta, urls))

@@ -25,6 +25,10 @@ const myGlbJa: Record<string, string> = {
   'Size (m): W {w} × H {h} × D {d}': '大きさ（m）：幅 {w} × 高さ {h} × 奥行 {d}',
   'Saved models': '保存したモデル',
   'Nothing saved yet.': 'まだありません。',
+  'If you move a scene that uses these models to another device or browser, the models will not appear there.':
+    'これらのモデルを使ったシーンを別の端末や別のブラウザへ移すと、そちらではモデルが表示されません。',
+  'This scene uses it {n} time(s). If you delete it, those items will no longer be shown.':
+    'このシーンで {n} 個使っています。削除すると、それらは表示されなくなります。',
 }
 
 // 上流のテストは英語の文言で照合するため、テスト実行中は翻訳しない（i18n.ts と同じ扱い）

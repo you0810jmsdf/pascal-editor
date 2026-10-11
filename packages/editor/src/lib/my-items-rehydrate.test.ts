@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test'
-import { isMyItemId, planMyItemRefresh } from './my-items-rehydrate'
+import { countMyItemUses, isMyItemId, planMyItemRefresh } from './my-items-rehydrate'
 
 const current = new Map([['my-1', { src: 'blob:new', thumbnail: 'blob:thumb-new' }]])
 
@@ -7,6 +7,21 @@ const itemNode = (id: string, assetId: string, src: string, thumbnail = 'blob:th
   id,
   type: 'item',
   asset: { id: assetId, src, thumbnail, dimensions: [1, 1, 1] },
+})
+
+describe('countMyItemUses', () => {
+  test('指定した素材を使っている家具だけ数える（他の素材・他の種類は数えない）', () => {
+    const nodes = {
+      a: itemNode('a', 'my-1', 'blob:x'),
+      b: itemNode('b', 'my-1', 'blob:x'),
+      c: itemNode('c', 'my-2', 'blob:y'),
+      d: { id: 'd', type: 'wall' },
+    }
+    expect(countMyItemUses(nodes, 'my-1')).toBe(2)
+    expect(countMyItemUses(nodes, 'my-2')).toBe(1)
+    expect(countMyItemUses(nodes, 'my-none')).toBe(0)
+    expect(countMyItemUses({ a: null, b: 5 } as Record<string, unknown>, 'my-1')).toBe(0)
+  })
 })
 
 describe('isMyItemId', () => {

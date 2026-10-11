@@ -5,7 +5,7 @@
  * 配布元（threejsassets.com など）が素材ファイルの再配布を禁じているため、サイトやリポジトリには
  * 素材を載せず、利用者の端末の IndexedDB にだけ保存する。サーバーには何も送らない。
  */
-import type { AssetInput } from '@pascal-app/core'
+import { type AssetInput, useScene } from '@pascal-app/core'
 import { staticDecoderPath } from '@pascal-app/viewer'
 import { useCallback, useEffect, useState } from 'react'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
@@ -13,6 +13,8 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { fitFromBounds, type GlbFit, type Vec3 } from '../../../lib/my-glb-fit'
 import { measureGlb } from '../../../lib/my-glb-measure'
 import { tm as t, tmf as tf } from '../../../lib/my-glb-strings'
+import { renderGlbThumbnail } from '../../../lib/my-glb-thumbnail'
+import { countMyItemUses } from '../../../lib/my-items-rehydrate'
 import { loadMyCatalogItems, releaseMyItemUrls } from '../../../lib/my-items-runtime'
 import { addMyItem, MyItemsError, removeMyItem } from '../../../lib/my-items-store'
 import { cn } from '../../../lib/utils'
@@ -54,6 +56,9 @@ type Pending = {
   unit: GlbFit['unit']
   bounds: { min: Vec3; max: Vec3 }
   fit: GlbFit
+  /** 描画したサムネイル（失敗したら null＝簡易画像になる）と、確認カードに出す一時 URL */
+  thumb: Blob | null
+  thumbUrl: string | null
 }
 
 const fmt = (n: number) => `${Math.round(n * 1000) / 1000}`
@@ -84,12 +89,16 @@ export function MyGlbItemsPanel() {
     if (!file) return
     setBusy(true)
     try {
-      const result = await measureGlb(await file.arrayBuffer(), createLoader())
+      const buffer = await file.arrayBuffer()
+      const result = await measureGlb(buffer, createLoader())
       if (!result.ok) {
         setError(result.message)
         return
       }
+      const thumb = await renderGlbThumbnail(buffer, createLoader())
       setPending({
+        thumb,
+        thumbUrl: thumb ? URL.createObjectURL(thumb) : null,
         file,
         name: file.name.replace(/\.glb$/i, ''),
         category: 'furniture',
@@ -102,6 +111,18 @@ export function MyGlbItemsPanel() {
       setBusy(false)
     }
   }
+
+  /** 確認カードを閉じ、カード用の一時 URL を破棄する */
+  const closeCard = () => {
+    setPending((p) => {
+      if (p?.thumbUrl) URL.revokeObjectURL(p.thumbUrl)
+      return null
+    })
+  }
+
+  /** 削除の確認で出す「いまのシーンでの使用数」。開いている別のシーンの分は数えられない */
+  const useCount = (id: string) =>
+    countMyItemUses(useScene.getState().nodes as Record<string, unknown>, id)
 
   const changeUnit = (unit: GlbFit['unit']) => {
     if (!pending) return
@@ -122,8 +143,9 @@ export function MyGlbItemsPanel() {
         rotation: [0, 0, 0],
         scale: pending.fit.scale,
         ...(pending.placement === 'floor' ? {} : { attachTo: pending.placement }),
+        ...(pending.thumb ? { thumbBlob: pending.thumb } : {}),
       })
-      setPending(null)
+      closeCard()
       await refresh()
     } catch (e) {
       setError(e instanceof MyItemsError ? e.message : t('Could not save.'))
@@ -167,7 +189,7 @@ export function MyGlbItemsPanel() {
                 className="rounded px-2 py-0.5 text-muted-foreground hover:bg-accent"
                 onClick={() => {
                   setOpen(false)
-                  setPending(null)
+                  closeCard()
                   setError(null)
                 }}
                 type="button"
@@ -178,6 +200,11 @@ export function MyGlbItemsPanel() {
             <p className="mb-3 text-muted-foreground text-xs">
               {t(
                 'Models you load here stay only in this browser. They are not uploaded and not shared. Check the license of the files you use.',
+              )}
+            </p>
+            <p className="mb-3 text-muted-foreground text-xs">
+              {t(
+                'If you move a scene that uses these models to another device or browser, the models will not appear there.',
               )}
             </p>
 
@@ -207,6 +234,14 @@ export function MyGlbItemsPanel() {
 
             {pending && (
               <div className="mb-3 flex flex-col gap-2 rounded-lg border border-border p-3">
+                {pending.thumbUrl && (
+                  <img
+                    alt=""
+                    className="size-16 self-center rounded-lg object-cover"
+                    data-testid="my-glb-thumb"
+                    src={pending.thumbUrl}
+                  />
+                )}
                 <label className="flex flex-col gap-1 text-xs">
                   {t('Name')}
                   <input
@@ -278,7 +313,7 @@ export function MyGlbItemsPanel() {
                 <div className="flex justify-end gap-2">
                   <button
                     className="rounded px-3 py-1 text-muted-foreground hover:bg-accent"
-                    onClick={() => setPending(null)}
+                    onClick={() => closeCard()}
                     type="button"
                   >
                     {t('Cancel')}
@@ -303,7 +338,7 @@ export function MyGlbItemsPanel() {
               <ul className="flex flex-col gap-1">
                 {myItems.map((item) => (
                   <li
-                    className="flex items-center justify-between gap-2 rounded-lg bg-muted/50 px-2 py-1 text-xs"
+                    className="flex flex-wrap items-center justify-between gap-2 rounded-lg bg-muted/50 px-2 py-1 text-xs"
                     key={item.id}
                   >
                     <span className="min-w-0 truncate">
@@ -338,6 +373,14 @@ export function MyGlbItemsPanel() {
                       >
                         {t('Delete')}
                       </button>
+                    )}
+                    {confirmDelete === item.id && useCount(item.id) > 0 && (
+                      <p className="basis-full text-amber-300" data-testid="my-glb-in-use">
+                        {tf(
+                          'This scene uses it {n} time(s). If you delete it, those items will no longer be shown.',
+                          { n: useCount(item.id) },
+                        )}
+                      </p>
                     )}
                   </li>
                 ))}

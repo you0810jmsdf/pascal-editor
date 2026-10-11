@@ -46,3 +46,13 @@ export function planMyItemRefresh(
   }
   return out
 }
+
+/** いまのシーンで、指定したマイ素材を使っている家具の数（削除前の警告に使う）。 */
+export function countMyItemUses(nodes: Record<string, unknown>, assetId: string): number {
+  let count = 0
+  for (const value of Object.values(nodes)) {
+    const node = value as NodeLike
+    if (node?.type === 'item' && node.asset?.id === assetId) count++
+  }
+  return count
+}

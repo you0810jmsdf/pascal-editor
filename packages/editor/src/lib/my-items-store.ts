@@ -29,10 +29,13 @@ export type MyItemMeta = {
   size: number
 }
 
-type MyItemRecord = MyItemMeta & { file: Blob }
+/** 保存される記録。GLB 本体と、描画したサムネイル画像（PNG）も同じ記録に入れる */
+type MyItemRecord = MyItemMeta & { file: Blob; thumbBlob?: Blob }
 
 export type NewMyItem = Omit<MyItemMeta, 'id' | 'createdAt' | 'size' | 'thumbnail'> & {
   thumbnail?: string
+  /** 描画したサムネイル（無ければ、画面では名前の頭文字の簡易画像になる） */
+  thumbBlob?: Blob
 }
 
 export type MyItemsStoreError = 'too-large' | 'empty-name' | 'storage'
@@ -85,7 +88,7 @@ function newId(): string {
 }
 
 function toMeta(record: MyItemRecord): MyItemMeta {
-  const { file: _file, ...meta } = record
+  const { file: _file, thumbBlob: _thumbBlob, ...meta } = record
   return meta
 }
 
@@ -136,6 +139,15 @@ export async function getMyItemFile(
 ): Promise<Blob | null> {
   const record = await run<MyItemRecord | undefined>(factory, 'readonly', (store) => store.get(id))
   return record?.file ?? null
+}
+
+/** 描画したサムネイル画像を取り出す。無ければ null。 */
+export async function getMyItemThumb(
+  id: string,
+  factory: IDBFactory = indexedDB,
+): Promise<Blob | null> {
+  const record = await run<MyItemRecord | undefined>(factory, 'readonly', (store) => store.get(id))
+  return record?.thumbBlob ?? null
 }
 
 /** 登録と GLB 本体をまとめて削除する。使用中かどうかの警告は呼び出し側（R4）。 */

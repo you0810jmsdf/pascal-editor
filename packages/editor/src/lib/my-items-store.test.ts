@@ -4,6 +4,7 @@ import { MY_GLB_MAX_BYTES } from './my-glb-measure'
 import {
   addMyItem,
   getMyItemFile,
+  getMyItemThumb,
   listMyItems,
   MyItemsError,
   type NewMyItem,
@@ -38,6 +39,22 @@ describe('my-items-store', () => {
     const file = await getMyItemFile(meta.id, factory)
     expect(file).not.toBeNull()
     expect(await file!.text()).toBe('中身A')
+  })
+
+  test('サムネイル画像は別に取り出せ、一覧には含まれず、削除で一緒に消える', async () => {
+    const factory = new IDBFactory()
+    const meta = await addMyItem(
+      glb(),
+      { ...sample(), thumbBlob: new Blob(['png-bytes'], { type: 'image/png' }) },
+      factory,
+    )
+    expect('thumbBlob' in (await listMyItems(factory))[0]!).toBe(false)
+    expect(await (await getMyItemThumb(meta.id, factory))!.text()).toBe('png-bytes')
+    await removeMyItem(meta.id, factory)
+    expect(await getMyItemThumb(meta.id, factory)).toBeNull()
+    // サムネイル無しで登録した素材は null
+    const bare = await addMyItem(glb(), sample('B'), factory)
+    expect(await getMyItemThumb(bare.id, factory)).toBeNull()
   })
 
   test('一覧は登録が新しい順', async () => {
