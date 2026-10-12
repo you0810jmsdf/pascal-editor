@@ -298,6 +298,11 @@ export { Slider } from './components/ui/primitives/slider'
 export { Tooltip, TooltipContent, TooltipTrigger } from './components/ui/primitives/tooltip'
 export { SceneLoader } from './components/ui/scene-loader'
 export type { ExtraPanel } from './components/ui/sidebar/icon-rail'
+// N's factory: 家事按分パネル（部屋ごとの区分 → 内法面積から按分率・根拠表）
+export {
+  anbunHostPanel,
+  anbunPlugin,
+} from './components/ui/sidebar/panels/anbun-panel/host-panel'
 export { ItemsPanel } from './components/ui/sidebar/panels/items-panel'
 export type { FunctionTreeNode } from './components/ui/sidebar/panels/items-panel/function-tree-panel'
 // N's factory: 日本の建築法規パネル（ホストが registerEditorHostPanel で登録する）

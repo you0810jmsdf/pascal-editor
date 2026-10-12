@@ -1,3 +1,5 @@
+// N's factory: 家事按分の部屋の区分（zone.ns）
+export * from './anbun'
 export * from './commands/structure'
 export type {
   BlockEvent,
@@ -100,6 +102,8 @@ export {
   type WallConstructionResolution,
 } from './hooks/spatial-grid/support-host-patch'
 export { useSpatialQuery } from './hooks/spatial-grid/use-spatial-query'
+// N's factory: 日本の建築法規（シーン → @nsfactory/kenchiku の入力モデル）
+export * from './kenchiku'
 export { createAngleAccumulator } from './lib/angle-accumulator'
 export {
   ARTIFACT_URL_PREFIX,
@@ -907,6 +911,3 @@ export {
   type ValidationSeverity,
   validateBuildJson,
 } from './validation/validate-build-json'
-
-// N's factory: 日本の建築法規（シーン → @nsfactory/kenchiku の入力モデル）
-export * from './kenchiku'

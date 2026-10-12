@@ -1,11 +1,14 @@
 import dedent from 'dedent'
 import { z } from 'zod'
+import { NsZone } from '../../anbun'
 import { JpZone } from '../../kenchiku/schema'
 import { BaseNode, nodeType, objectId } from '../base'
 import { SurfacePaintRegion } from './surface-paint-region'
 
 export const ZoneNode = BaseNode.extend({
   jp: JpZone,
+  // N's factory: 家事按分の区分（事業用／私用／共用・共用割合・総面積に数えるか）
+  ns: NsZone,
   id: objectId('zone'),
   type: nodeType('zone'),
   name: z.string(),
